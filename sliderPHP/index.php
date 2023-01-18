@@ -427,9 +427,9 @@ $group = "ИСП9-201 ";
     .slider_item{
         font-size: 100px;
         height: 600px;
-        еркееркер
+
     }
-ыфвфывфывф
+
 
 
 </style>
