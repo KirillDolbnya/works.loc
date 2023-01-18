@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header{
+    background: #222222;
+    padding: 19px 0;
+}
+
+.container{
+    max-width: 1160px;
+    width: 100%;
+    padding: 0 10px;
+    margin: 0 auto;
+    /* outline: 1px solid red; */
+}
+
+.nav_left{
+    display: flex;
+    align-items: center;
+}
+
+.nav_right{
+    display: flex;
+    align-items: center;
+}
+
+.nav_left a{
+    text-decoration: none;
+}
+
+.header_flex{
+    display: flex;
+    justify-content: space-between; 
+}
+
+.header_logo{
+    margin-right: 33px;
+}
+
+.nav_item:not(:last-child){
+    margin-right: 33px;
+}
+
+.amount{
+    color: #FFFFFF;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: #F16D7F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: -9px;
+    top: -6px;
+}
+
+.basket_header{
+    position: relative;
+}
+
+.intro_flex{
+    background: #F8F3F4;
+    height: 148px;
+    color: #F16D7F;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.card_basket{
+    margin-top: 96px;
+}
+
+.card_flex{
+    gap: 40px;
+}
+
+.card{
+    width: 652px;
+    height: 306px;
+    display: flex;
+    gap: 31px;
+    outline: 1px solid red;
+}
+
+.card-2{
+    margin-top: 31px;
+}
+
+.card_price{
+    
+}
+
+
+
