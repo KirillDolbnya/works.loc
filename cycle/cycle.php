@@ -33,5 +33,42 @@
            $n++; } while ($n <= 15); 
         ?>
     </ol>
+
+    <ol>
+        <li>
+            1
+            <li>
+                2
+                <li>3</li>
+            </li>
+        </li>
+    </ol>   
+
+    <p>-------------------------</p>
+
+    <ol>
+        <?php 
+        for ($i=1; $i <= 5 ; $i++) { ?>
+            <ol>
+                <li>
+                <?php echo  $i; ?>
+                    <?php for($a = 1; $a<=5;$a++){ ?>
+                        <ol>
+                            <li>
+                                <?php echo $a; ?>
+                                <?php for($n=1; $n<=5;$n++){ ?>
+                                    <ol>
+                                        <li>
+                                            <?php echo $n; ?>
+                                        </li>
+                                    </ol>
+                                <?php } ?>   
+                            </li>
+                        </ol>    
+                    <?php } ?>    
+                </li>
+            </ol>        
+        <?php } ?>
+    </ol>
 </body>
 </html>
