@@ -1,0 +1,37 @@
+.footer{
+    height: 79px;
+    background: #000;
+
+    .footer_flex{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .footer_title{
+            color: #FBFBFB;
+            margin-top: 30px;
+        }
+
+        .footer_icon{
+            margin-top: 24px;
+            display: flex;
+            gap: 7px;
+
+            .social-icon{
+                width: 31px;
+                height: 32px;
+                background: #FFFFFF;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+                color: #000000;
+            }
+
+            .social-icon:hover{
+                background: #F16D7F;
+                color: #FFFFFF;
+            }
+        }
+    }
+}

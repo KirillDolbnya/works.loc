@@ -1,0 +1,48 @@
+.header{
+    background: #222222;
+    padding: 19px 0;
+
+    &_flex{
+        display: flex;
+        justify-content: space-between; 
+
+        .nav_left{
+            display: flex;
+            align-items: center;
+            a{
+                text-decoration: none;
+                    .header_logo{
+                        margin-right: 33px;
+                }
+            }
+        }
+
+        .nav_right{
+            display: flex;
+            align-items: center;
+    
+            .nav_item{
+                &:not(:last-child){
+                    margin-right: 33px;
+                }
+            }
+
+            .basket_header{
+                position: relative;
+                .amount{
+                    color: #FFFFFF;
+                    width: 19px;
+                    height: 19px;
+                    border-radius: 50%;
+                    background: #F16D7F;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    right: -9px;
+                    top: -6px;
+                }
+            }
+        }
+    }
+}
