@@ -92,26 +92,22 @@
                            <div class="d-flex flex-wrap demo demo-h-spacing mt-3 mb-3">
                            <?php foreach ($users as $key => $value) { ?>
 
-                            <div class="<?php echo $value['class'] ?> rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
-                                <img src="<?php echo $value['image'] ?>" alt="<?php echo $value['altimage'] ?>" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
-                                <div class="ml-2 mr-3">
-                                    <h5 class="m-0">
-                                        <?php echo $value['name'].$value['position'] ?>
-                                        <small class="m-0 fw-300">
-                                            <?php echo $value['status'] ?>
-                                        </small>
-                                    </h5>
-
-
-                                    <a href="<?php echo $value['twitter'] ?>" class="text-info fs-sm" target="_blank"><?php echo $value['twittertext'] ?></a> 
-
-                                    -
-                                    <a href="<?php echo $value['wrapbootstrap'] ?>" class="text-info fs-sm" target="_blank" title="<?php echo $value['title'] ?>"><i class="fal fa-envelope"></i></a>
+                                <div class="<?php echo $value['class'] ?> rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
+                                    <img src="<?php echo $value['image'] ?>" alt="<?php echo $value['altimage'] ?>" class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
+                                    <div class="ml-2 mr-3">
+                                        <h5 class="m-0">
+                                            <?php echo $value['name'].$value['position'] ?>
+                                            <small class="m-0 fw-300">
+                                                <?php echo $value['status'] ?>
+                                            </small>
+                                        </h5>
+                            
+                                        <a href="<?php echo $value['twitter'] ?>" class="text-info fs-sm" target="_blank"><?php echo $value['twittertext'] ?></a> 
+                                        -
+                                        <a href="<?php echo $value['wrapbootstrap'] ?>" class="text-info fs-sm" target="_blank" title="<?php echo $value['title'] ?>"><i class="fal fa-envelope"></i></a>
+                                    </div>
                                 </div>
-
-    
-                            </div>
-
+                            
                             <?php } ?>
                             <!-- <div class="rounded-pill bg-white shadow-sm p-2 border-faded mr-3 d-flex flex-row align-items-center justify-content-center flex-shrink-0">
                                 <img src="img/demo/authors/josh.png" alt="Jos K." class="img-thumbnail img-responsive rounded-circle" style="width:5rem; height: 5rem;">
