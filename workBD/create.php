@@ -9,6 +9,7 @@
 <body>
     <form action="store.php" method="post">
         <input type="text" name="name" class="input">
+        <input type="text" name="email">
         <button type="submit">Добавить</button>
     </form>
 
@@ -24,6 +25,6 @@
             border: none;
         }
     </style>
-    
+
 </body>
 </html>
