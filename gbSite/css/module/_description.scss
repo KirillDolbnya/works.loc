@@ -1,0 +1,40 @@
+.description{
+    margin-top: 95px;
+    background: #222224;
+
+    .description_flex{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        padding: 104px 0;
+    }
+
+    .box{
+        width: 360px;
+        text-align: center;
+        color: #FBFBFB;
+
+        .description_title{
+            font-size: 19px;
+            font-weight: bold;
+        }
+        
+        .delivery_title{
+            margin-top: 28px;
+        }
+        
+        .sale_title{
+            margin-top: 19px;
+        }
+        
+        .quality_title{
+            margin-top: 25px;
+        }
+        
+        .description_text{
+            font-size: 13px;
+            margin-top: 16px;
+        }
+    }
+}

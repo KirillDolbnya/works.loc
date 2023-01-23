@@ -91,23 +91,23 @@
   justify-content: center;
   align-items: center;
 }
-.category .category_flex .category_item_:not(:last-child) {
+.category .category_flex .category_item:not(:last-child) {
   width: 360px;
   height: 250px;
 }
-.category .category_flex .category_item .category_title {
+.category .category_flex .category_title {
   width: 159px;
   text-align: center;
 }
-.category .category_flex .category_item .category_title_:not(:last-child) {
+.category .category_flex .category_title_title:not(:last-child) {
   width: 110px;
   text-align: center;
 }
-.category .category_flex .category_item .category_title .title_p {
+.category .category_flex .category_title .title_p {
   font-size: 12px;
   color: #F1E4E6;
 }
-.category .category_flex .category_item .category_title .title_span {
+.category .category_flex .category_title .title_span {
   font-size: 18px;
   color: #F16D7F;
 }
@@ -132,7 +132,7 @@
 }
 .content .content_title .fetured {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  color: #222222;
+  color: 14px;
   font-size: 30px;
 }
 .content .content_title .shop {
@@ -184,7 +184,7 @@
   color: #F26376;
   border: 1px solid #FF6A6A;
   background: #fff;
-  font-size: 13px;
+  font-size: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -202,6 +202,7 @@
 .description .description_flex {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 30px;
   padding: 104px 0;
 }
@@ -237,6 +238,7 @@
 .subscribe {
   height: 448px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   background: url(../img/subscribe.png) no-repeat;
 }

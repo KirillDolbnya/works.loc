@@ -1,5 +1,7 @@
 @charset 'UTF-8';
 
+@import 'module/var';
+
 *{
     margin: 0;
     padding: 0;
@@ -58,8 +60,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-
-            &_:not(:last-child){
+        }
+            .category_item:not(:last-child){
                 width: 360px;
                 height: 250px;
             }
@@ -68,7 +70,7 @@
                 width: 159px;
                 text-align: center;
 
-                &_:not(:last-child){
+                &_title:not(:last-child){
                     width: 110px;
                     text-align: center;
                 }
@@ -83,7 +85,6 @@
                     color: #F16D7F;
                 }
             }
-        }
 
         .item-1{
             background: url(../img/women.png) no-repeat;
@@ -112,7 +113,7 @@
         
         .fetured{
             text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);   
-            color: #222222;
+            color: $main-size;
             font-size: 30px;
         }
 
@@ -143,18 +144,18 @@
                 width: 314px;
             }
             .name{
-                font-size: 14px;
+                font-size: $main-size;
                 font-weight: bold;
             }
             .description_card{
                 margin-top: 13px;
-                font-size: 14px;
+                font-size: $main-size;
                 color: #5D5D5D;
             }
             .price{
                 margin-top: 18px;
                 font-size: 16px;
-                color: #F16D7F;
+                color: $main-bg;
             }
         }
     }
@@ -170,7 +171,7 @@
             color: #F26376;
             border: 1px solid #FF6A6A;
             background: #fff;
-            font-size: 13px;
+            font-size: $main-size;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -184,125 +185,8 @@
     }
 }
 
+@import 'module/description';
 
-.description{
-    margin-top: 95px;
-    background: #222224;
-    .description_flex{
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        padding: 104px 0;
-    }
-
-    .box{
-        width: 360px;
-        text-align: center;
-        color: #FBFBFB;
-
-        .description_title{
-            font-size: 19px;
-            font-weight: bold;
-        }
-        
-        .delivery_title{
-            margin-top: 28px;
-        }
-        
-        .sale_title{
-            margin-top: 19px;
-        }
-        
-        .quality_title{
-            margin-top: 25px;
-        }
-        
-        .description_text{
-            font-size: 13px;
-            margin-top: 16px;
-        }
-    }
-}
-
-
-.wrap{
-    max-width: 1600px;
-    width: 100%;
-    margin: 0 auto;
-}
-.subscribe{
-    height: 448px;
-    display: flex;
-    align-items: center;
-    background: url(../img/subscribe.png) no-repeat;
-
-    .subscribe_flex{
-        display: flex;
-        justify-content: space-around;
-
-        .vestibulum{
-            text-align: center;
-            width: 290px;
-            height: 225px;
-
-            .img{
-                width: 96px;
-                height: 96px;
-                display: contents;
-
-                .img img{
-                    width: 100px;
-                    height: 100px;
-                }
-            }
-            
-            .vestibulum_title{
-                margin-top: 30px;
-            }
-        }
-
-        .email{
-            text-align: center;
-            margin-top: 40px;
-
-            .email_title{
-                font-size: 24px;
-                font-weight: bold;
-            }
-            
-            .email_text{
-                font-size: 18px;
-            }
-
-            .email_subscrube{
-                display: flex;
-                margin-top: 32px;
-
-                .input{
-                    width: 234px;
-                    height: 49px;
-                    border: none;
-                    background: #E1E1E1;
-                    font-size: 14px;
-                    padding-left: 22px;
-                    border-radius: 25px 0 0 25px;
-                }
-                
-                .btn_email{
-                    width: 120px;
-                    height: 49px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background: #F16D7F;
-                    color: #FFFFFF;
-                    font-size: 14px;
-                    border-radius: 0 25px 25px 0;
-                    border: none;
-                }
-            }
-        }
-    }
-}
+@import 'module/subscribe';
 
 @import 'module/footer';
