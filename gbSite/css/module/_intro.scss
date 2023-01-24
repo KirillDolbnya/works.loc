@@ -1,0 +1,35 @@
+.intro{
+    height: 148px;
+    background:  #F8F3F4;
+
+    .intro_flex{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .intro_title{
+            color: #F16D7F;
+            font-size: 24px;
+            margin-top: 59px;
+          }
+
+          .nav_intro{
+            display: flex;
+            /* align-items: center; */
+            margin-top: 65px;
+
+            .link_intro{
+                text-decoration: none;
+                color: #636363;
+                line-height: 17px;
+                font-size: 14px;
+                height: 17px;
+
+                .active{
+                    color: #F16D7F;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

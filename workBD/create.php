@@ -9,7 +9,8 @@
 <body>
     <form action="store.php" method="post">
         <input type="text" name="name" class="input">
-        <input type="text" name="email">
+        <input type="text" name="surname">
+        <input type="text" name="username">
         <button type="submit">Добавить</button>
     </form>
 

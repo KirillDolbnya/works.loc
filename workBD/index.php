@@ -34,7 +34,8 @@
                             <tr>
                                 <td><?php echo $value['id'] ?></td>
                                 <td><?php echo $value['name'] ?></td>
-                                <td><?php echo $value['email'] ?></td>
+                                <td><?php echo $value['surname'] ?></td>
+                                <td><?php echo $value['username'] ?></td>
                                 <td>
                                 <a class="btn__show" href="#">Show</a>
                                 <a class="btn__edit" href="#">Edit</a>
