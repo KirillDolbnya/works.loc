@@ -7,16 +7,19 @@
     <title>Document</title>
 </head>
 <body>
+
+<h2>Create</h2>
     <form action="store.php" method="post">
-        <input type="text" name="name" class="input">
-        <input type="text" name="surname">
-        <input type="text" name="username">
+        <input placeholder="Введите имя" type="text" name="name" class="input">
+        <input placeholder="Введите фамилию" type="text" name="surname" class="input">
+        <input placeholder="Введите имя пользователя" type="text" name="username" class="input">
+        <input placeholder="Введите ваш email" type="text" name="email" class="input">
         <button type="submit">Добавить</button>
     </form>
 
     <style>
         .input{
-            padding: 10px;
+            padding: 5px;
         }
 
         button{

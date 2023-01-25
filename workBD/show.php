@@ -23,7 +23,9 @@
     <h1>User</h1>
 
     <p>Добро пожаловать <?php echo $user['name'].' '.$user['surname'] ?></p>
-    <p>Ваш id <?php echo $user['id'] ?></p>
+    <p>Ваш id: <?php echo $user['id'] ?></p>
+    <p>Ваш email: <?php echo $user['email'] ?></p>
+    <p>Дата редактирования: <?php echo $user['dateEdit'] ?></p>
 
     <style>
 

@@ -12,23 +12,24 @@
 
 $pdo = new PDO ("mysql:host=localhost;dbname=ten;","root","");
 $statement = $pdo->prepare("SELECT * FROM users WHERE id=:id");
-$statement->execute($_GET);
+$statement->execute($arrData);
 $user = $statement->fetch(PDO::FETCH_ASSOC);
 
 ?>
 
-
+<h2>Edit</h2>
 <form action="update.php" method="post">
         <input type="hidden" name="id" value="<?php echo $user['id'] ?>">
-        <input type="text" name="name" class="input" value="<?php echo $user['name'] ?>">
-        <input type="text" name="surname" value="<?php echo $user['surname'] ?>">
-        <input type="text" name="username" value="<?php echo $user['username'] ?> ">
+        <input class="input" placeholder="Введите имя" type="text" name="name" class="input" value="<?php echo $user['name'] ?>">
+        <input class="input" placeholder="Введите фамилию" type="text" name="surname" value="<?php echo $user['surname'] ?>">
+        <input class="input" placeholder="Введите имя пользователя" type="text" name="username" value="<?php echo $user['username'] ?> ">
+        <input class="input" placeholder="Введите ваш email"  type="text" name="email" value="<?php echo $user['email'] ?> ">
         <button type="submit">edit user</button>
     </form>
 
     <style>
         .input{
-            padding: 10px;
+            padding: 5px;
         }
 
         button{
