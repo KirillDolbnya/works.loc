@@ -11,7 +11,7 @@
     <?php
 
 
-    $pdo = new PDO ("mysql:host=localhost;dbname=qwerty;","root",""); //СОЕДИНЕНИЕ С БАЗОЙ ДАННЫХ
+    $pdo = new PDO ("mysql:host=localhost;dbname=ten;","root",""); //СОЕДИНЕНИЕ С БАЗОЙ ДАННЫХ
     $statement = $pdo->prepare("SELECT * FROM users"); //ЗАПРОС SELECT
     $statement->execute(); //ПОЛУЧИТЬ РЕЗУЛЬТАТ 
     $users = $statement->fetchAll(PDO::FETCH_ASSOC); //ПЕРЕДАЕМ ДАННЫЕ В ПЕРЕМЕННУЮ USER
@@ -27,7 +27,8 @@
                     <thead>
                         <th>id</th>
                         <th>name</th>
-                        <th>email</th>
+                        <th>surname</th>
+                        <th>username</th>
                     </thead>
                     <?php foreach ($users as $user => $value) {?>
                         <tbody class="tbody">
@@ -37,8 +38,8 @@
                                 <td><?php echo $value['surname'] ?></td>
                                 <td><?php echo $value['username'] ?></td>
                                 <td>
-                                <a class="btn__show" href="#">Show</a>
-                                <a class="btn__edit" href="#">Edit</a>
+                                <a class="btn__show" href="show.php?id=<?php echo $value['id'] ?>">Show</a>
+                                <a class="btn__edit" href="edit.php?id=<?php echo $value['id'] ?>">Edit</a>
                                 <a class="btn__delete" href="#">Delete</a>
                                 </td>
                             </tr>
