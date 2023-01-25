@@ -10,9 +10,9 @@
 
 <?php
 
-$pdo = new PDO ("mysql:host=localhost;dbname=ten;","root","");
+$pdo = new PDO ("mysql:host=localhost;dbname=qwerty","root","");
 $statement = $pdo->prepare("SELECT * FROM users WHERE id=:id");
-$statement->execute($arrData);
+$statement->execute($_GET);
 $user = $statement->fetch(PDO::FETCH_ASSOC);
 
 ?>

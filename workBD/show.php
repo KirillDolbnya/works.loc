@@ -11,7 +11,7 @@
     <?php
 
 
-    $pdo = new PDO ("mysql:host=localhost;dbname=ten;","root",""); //СОЕДИНЕНИЕ С БАЗОЙ ДАННЫХ
+    $pdo = new PDO ("mysql:host=localhost;dbname=qwerty;","root",""); //СОЕДИНЕНИЕ С БАЗОЙ ДАННЫХ
     $statement = $pdo->prepare("SELECT * FROM users WHERE id=:id"); //ЗАПРОС SELECT
     $statement->execute($_GET); //ПОЛУЧИТЬ РЕЗУЛЬТАТ 
     $user = $statement->fetch(PDO::FETCH_ASSOC); //ПЕРЕДАЕМ ДАННЫЕ В ПЕРЕМЕННУЮ USER
@@ -25,7 +25,6 @@
     <p>Добро пожаловать <?php echo $user['name'].' '.$user['surname'] ?></p>
     <p>Ваш id: <?php echo $user['id'] ?></p>
     <p>Ваш email: <?php echo $user['email'] ?></p>
-    <p>Дата редактирования: <?php echo $user['dateEdit'] ?></p>
 
     <style>
 

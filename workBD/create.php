@@ -9,6 +9,12 @@
 <body>
 
 <h2>Create</h2>
+
+    <?php if(isset($_SESSION['error'])): ?>
+        <div>Этот адрес электронной почты уже занят</div>
+        <?php unset($_SESSION['error']); ?>
+    <?php endif; ?> 
+
     <form action="store.php" method="post">
         <input placeholder="Введите имя" type="text" name="name" class="input">
         <input placeholder="Введите фамилию" type="text" name="surname" class="input">
