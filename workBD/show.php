@@ -11,10 +11,10 @@
     <?php
 
 
-    $pdo = new PDO ("mysql:host=localhost;dbname=qwerty;","root",""); //СОЕДИНЕНИЕ С БАЗОЙ ДАННЫХ
-    $statement = $pdo->prepare("SELECT * FROM users WHERE id=:id"); //ЗАПРОС SELECT
-    $statement->execute($_GET); //ПОЛУЧИТЬ РЕЗУЛЬТАТ 
-    $user = $statement->fetch(PDO::FETCH_ASSOC); //ПЕРЕДАЕМ ДАННЫЕ В ПЕРЕМЕННУЮ USER
+    $pdo = new PDO ("mysql:host=localhost;dbname=qwerty;","root",""); 
+    $statement = $pdo->prepare("SELECT * FROM users WHERE id=:id"); 
+    $statement->execute($_GET); 
+    $user = $statement->fetch(PDO::FETCH_ASSOC); 
 
     ?>
 
