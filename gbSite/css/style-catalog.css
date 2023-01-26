@@ -79,7 +79,7 @@
   font-size: 14px;
   height: 17px;
 }
-.intro .intro_flex .nav_intro .link_intro .active {
+.intro .intro_flex .nav_intro .active {
   color: #F16D7F;
   font-weight: bold;
 }
@@ -121,12 +121,12 @@
   width: 314px;
 }
 .cards .cards_flex .card .card_title .name-card {
-  font-size: 14px;
+  font-size: #F16D7F;
   font-weight: bold;
 }
 .cards .cards_flex .card .card_title .description-card {
   margin-top: 13px;
-  font-size: 14px;
+  font-size: #F16D7F;
   color: #5D5D5D;
 }
 .cards .cards_flex .card .card_title .price-card {

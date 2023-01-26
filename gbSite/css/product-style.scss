@@ -1,5 +1,7 @@
 @charset 'UTF-8';
 
+@import 'module/var';
+
 *{
     margin: 0;
     padding: 0;
@@ -68,7 +70,7 @@
         .collection_text-2{
             width: 555px;
             margin: 0 auto;
-            font-size: 14px;
+            font-size: $main-size;
             margin-top: 48px;
         }
         
@@ -118,7 +120,7 @@
         .card{
             width: 360px;
             height: 581px;
-            background: #F8F8F8;
+            background: $card-bg;
 
             .card_img{
                 width: 100%;
