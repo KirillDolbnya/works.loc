@@ -11,11 +11,14 @@ $pdo = new PDO ("mysql:host=localhost;dbname=qwerty;","root","");
 $sql = "SELECT * FROM users WHERE email=:email";
 $statement = $pdo->prepare($sql);
 $statement->execute(['email'=>$email]);
-$email = $statement->fetch(PDO::FETCH_ASSOC);
+$checkEmail = $statement->fetch(PDO::FETCH_ASSOC);
 
-if(!empty($email)){
+if(!empty($checkEmail)){
+    $_SESSION['error'] = 'Пользователь с таким адресом email уже существует';
     header('Location: /workBD/create.php');
+    exit;
 }
+
 
 $statement = $pdo->prepare("INSERT INTO users (name,surname,username,email) VALUES (:name, :surname, :username, :email)");
 $statement->execute(['name'=>$name,'surname'=>$surname,'username'=>$username,'email'=>$email]);

@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +11,11 @@
 <body>
 
 <h2>Create</h2>
+
+    <?php if(isset($_SESSION['error'])){ ?>
+        <div>Пользователь с таким адресом email уже существует</div>
+        <?php unset($_SESSION['error']) ?>
+    <?php } ?>    
 
     <form action="store.php" method="post">
         <input placeholder="Введите имя" type="text" name="name" class="input">

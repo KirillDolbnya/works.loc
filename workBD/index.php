@@ -1,12 +1,4 @@
-<?php
-session_start();
-$_SESSION[$email];
-
-var_dump($_SESSION);
-
-?>
-
-
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
