@@ -1,11 +1,16 @@
+@import 'var';
+
+
+
 .description{
     margin-top: 95px;
-    background: #222224;
+    background: $main-bg;
 
     .description_flex{
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        align-items: center;
         gap: 30px;
         padding: 104px 0;
     }

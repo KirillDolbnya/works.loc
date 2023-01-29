@@ -1,10 +1,14 @@
+@import 'var';
+
+
+
 .footer{
     height: 79px;
-    background: #000;
+    background: $main-bg;
 
     .footer_flex{
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
 
         .footer_title{

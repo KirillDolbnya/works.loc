@@ -197,12 +197,13 @@
 
 .description {
   margin-top: 95px;
-  background: #222224;
+  background: #222222;
 }
 .description .description_flex {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  align-items: center;
   gap: 30px;
   padding: 104px 0;
 }
@@ -302,11 +303,11 @@
 
 .footer {
   height: 79px;
-  background: #000;
+  background: #222222;
 }
 .footer .footer_flex {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .footer .footer_flex .footer_title {

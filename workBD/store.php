@@ -7,18 +7,18 @@ $username = $_POST['username'];
 $email = $_POST['email'];
 
   
-$pdo = new PDO ("mysql:host=localhost;dbname=ten;","root","");
+$pdo = new PDO ("mysql:host=localhost;dbname=qwerty;","root","");
 $sql = "SELECT * FROM users WHERE email=:email";
 $statement = $pdo->prepare($sql);
 $statement->execute(['email'=>$email]);
 $email = $statement->fetch(PDO::FETCH_ASSOC);
 
-if(!empty)
-
-
+if(!empty($email)){
+    header('Location: /workBD/create.php');
+}
 
 $statement = $pdo->prepare("INSERT INTO users (name,surname,username,email) VALUES (:name, :surname, :username, :email)");
-$statement->execute($_POST);
+$statement->execute(['name'=>$name,'surname'=>$surname,'username'=>$username,'email'=>$email]);
 header('Location: /workBD/index.php');
 
 ?>

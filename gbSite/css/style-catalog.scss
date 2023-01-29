@@ -25,22 +25,169 @@
 
 
     .cards{
+        margin-top: 39px;
 
         .catalog{
             display: flex;
-            margin-top: 51px;
+            position: relative;
+           
     
             .filter{
-                margin-right: 304px;
-                margin-left: 20px;
-                color: #000000;
-                font-weight: bold;
+                padding-left: 20px;
+
+                summary{
+                    color: #000000;
+                    font-weight: bold;
+                    display: flex;
+                    align-items: center;
+                    gap: 11px;
+                    list-style: none;
+                    path{
+                        fill: #000000;
+                    }
+                }
+
+                .category{
+                    margin-top: 16px;
+                    display: flex;
+                    align-items: center;
+
+                    .summary_category{
+                        color: #000000;
+                        font-weight: bold;
+                        display: flex;
+                        align-items: center;
+                        gap: 11px;
+                        list-style: none;
+                        padding-top: 11px;
+                        padding-left: 11px;
+                        padding-bottom: 11px;
+                        margin-right: 15px;
+                        border-left: 5px solid #EF5B70;
+                        border-bottom: 1px solid #EBEBEB;
+                    }
+    
+                    ul{
+                        padding-top: px;
+                        padding-left: 18px;
+                        li{
+                            list-style: none;
+                            margin-top: 11px;
+                            a{
+                                text-decoration: none;
+                                color: #6F6E6E;
+                                font-size: $main-size;
+                            }
+                        }
+                    }
+                }
+
+                .brand{
+                    margin-top: 18px;
+                    .summary_brand{
+                        color: #000000;
+                        font-weight: bold;
+                        display: flex;
+                        align-items: center;
+                        gap: 11px;
+                        list-style: none;
+                        padding-top: 11px;
+                        padding-left: 11px;
+                        padding-bottom: 11px;
+                        margin-right: 15px;
+                        border-left: 5px solid #EF5B70;
+                        border-bottom: 1px solid #EBEBEB;
+                    }
+                }
+
+                .designer{
+                    margin-top: 18px;
+                    .summary_designer{
+                        color: #000000;
+                        font-weight: bold;
+                        display: flex;
+                        align-items: center;
+                        gap: 11px;
+                        list-style: none;
+                        padding-top: 11px;
+                        padding-left: 11px;
+                        padding-bottom: 11px;
+                        margin-right: 15px;
+                        border-left: 5px solid #EF5B70;
+                        border-bottom: 1px solid #EBEBEB;
+                    }
+                }
+
             }
+
+            .filter[open]{
+                width: 360px;
+                height: 531px;
+                background: #FFFFFF;
+                position: absolute;
+                // border: 1px solid black;
+                // padding-right: 111px;
+
+                summary{
+                    color: #EF5B70;
+
+                    path{
+                        fill: #EF5B70;
+                    }
+                }
+
+                .category[open]{
+                    .summary_category{
+                        color: #EF5B70;
+                    }
+                }
+
+                .brand[open]{
+                    margin-top: 24px;
+                    .summary_brand{
+                        color: #EF5B70;
+                    }
+                }
+
+                .designer[open]{
+                    .summary_designer{
+                        color: #EF5B70;
+                    }
+                }
+            }
+
     
             .sort{
                 display: flex;
                 gap: 28px;
                 color: #6F6E6E;
+                margin-left: 290px;
+                position: relative;
+
+                details{
+                    
+                    summary{
+                        list-style: none;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    
+                    }
+                }
+
+                .size[open]{
+                    width: 79px;
+                    height: 103px;
+                    position: absolute;    
+                    display: block;                
+                    summary{
+                        list-style: none;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    
+                    }
+                }
             }
         }
         

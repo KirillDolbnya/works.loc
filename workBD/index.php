@@ -1,3 +1,13 @@
+<?php
+session_start();
+$_SESSION[$email];
+
+var_dump($_SESSION);
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +20,7 @@
 
     <?php
 
-    $pdo = new PDO ("mysql:host=localhost;dbname=ten;","root",""); //СОЕДИНЕНИЕ С БАЗОЙ ДАННЫХ
+    $pdo = new PDO ("mysql:host=localhost;dbname=qwerty;","root",""); //СОЕДИНЕНИЕ С БАЗОЙ ДАННЫХ
     $statement = $pdo->prepare("SELECT * FROM users"); //ЗАПРОС SELECT
     $statement->execute(); //ПОЛУЧИТЬ РЕЗУЛЬТАТ 
     $users = $statement->fetchAll(PDO::FETCH_ASSOC); //ПЕРЕДАЕМ ДАННЫЕ В ПЕРЕМЕННУЮ USER

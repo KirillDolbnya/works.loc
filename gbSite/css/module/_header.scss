@@ -1,5 +1,8 @@
+@import 'var';
+
+
 .header{
-    background: #222222;
+    background: $main-bg;
     padding: 19px 0;
 
     &_flex{
