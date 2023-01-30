@@ -13,7 +13,7 @@
 <h2>Create</h2>
 
     <?php if(isset($_SESSION['error'])){ ?>
-        <div>Пользователь с таким адресом email уже существует</div>
+        <div><?php echo $_SESSION['error']; ?></div>
         <?php unset($_SESSION['error']) ?>
     <?php } ?>    
 
@@ -25,7 +25,10 @@
         <button type="submit">Добавить</button>
     </form>
 
+ 
+ 
     <style>
+
         .input{
             padding: 5px;
         }
@@ -36,6 +39,7 @@
             background: blue;
             border: none;
         }
+
     </style>
 
 </body>
