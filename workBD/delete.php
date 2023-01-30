@@ -1,6 +1,6 @@
 <?php
 
-$pdo = new PDO ("mysql:host=localhost;dbname=ten;","root",""); 
+$pdo = new PDO ("mysql:host=localhost;dbname=qwerty;","root",""); 
 $statement = $pdo->prepare("DELETE FROM users WHERE id=:id");
 $statement->execute($_GET);
 
