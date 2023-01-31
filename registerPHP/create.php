@@ -1,24 +1,20 @@
 <?php
+session_start();
 
-$email = 'kirill123@gmail.com';
-$password = 'secret';
+require ('function.php');
 
-$pdo = new PDO("mysql:host=localhost;dbname=register;", "root" , "" );
+$email = $_POST['email'];
+$password = $_POST['password'];
 
-$sql = "SELECT email FROM users WHERE email=:email";
-$statement = $pdo->prepare($sql);
-$statement->execute(['email'=>$email]);
-$user = $statement->fetch(PDO::FETCH_ASSOC);
+$user = get_email($email);
 
-var_dump($user);die;
+if (!empty($user)){
+    flesh_message('error' , 'Эл. ад. уже занят другим пользователем');
+    redirect('/registerPHP/page_register.php');
+}
 
+add_user($email, $password);
 
+flesh_message('access' , 'Успешно');
 
-$sql = "INSERT INTO users (email , password) VALUES (:email , :password)";
-$statement = $pdo->prepare($sql);
-$statement->execute([
-    'email' => $email,
-    'password' => $password
-]);
-$user = $statement->fetch(PDO::FETCH_ASSOC);
-?>
+redirect('/registerPHP/page_login.php');
