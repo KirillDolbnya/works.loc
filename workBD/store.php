@@ -6,7 +6,7 @@ $surname = $_POST['surname'];
 $username = $_POST['username'];
 $email = $_POST['email'];
   
-$pdo = new PDO ("mysql:host=localhost;dbname=qwerty;","root","");
+$pdo = new PDO ("mysql:host=localhost;dbname=ten;","root","");
 $sql = "SELECT * FROM users WHERE email=:email";
 $statement = $pdo->prepare($sql);
 $statement->execute(['email'=>$email]);
