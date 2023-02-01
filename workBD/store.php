@@ -12,6 +12,9 @@ $statement = $pdo->prepare($sql);
 $statement->execute(['email'=>$email]);
 $checkEmail = $statement->fetch(PDO::FETCH_ASSOC);
 
+var_dump($checkEmail);
+die();
+
 $error = [
     'error' => [],
     'access' => [],
