@@ -12,8 +12,7 @@ $statement = $pdo->prepare($sql);
 $statement->execute(['email'=>$email]);
 $checkEmail = $statement->fetch(PDO::FETCH_ASSOC);
 
-var_dump($checkEmail);
-die();
+
 
 $error = [
     'error' => [],
@@ -22,9 +21,6 @@ $error = [
 
 
 
-//var_dump($_SESSION['error']);
-//var_dump($_SESSION['access']);
-//die;
 
 if(!empty($checkEmail)){
     $_SESSION['text'] = 'Пользователь с таким адресом email '. $email .' уже существует';
@@ -40,4 +36,3 @@ if(!empty($checkEmail)){
     header('Location: /workBD/index.php');
 }
 
-?>
