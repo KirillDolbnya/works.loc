@@ -44,11 +44,11 @@ session_start();
             <?php unset($_SESSION['access']);
         } ?>
 
-        <?php if (isset($_SESSION['problem'])){ ?>
+        <?php if (isset($_SESSION['incorrect'])){ ?>
             <div class="alert alert-danger text-dark">
-                <?php echo $_SESSION['problem'] ?>
+                <?php echo $_SESSION['incorrect'] ?>
             </div>
-        <?php unset($_SESSION['problem']); }  ?>
+        <?php unset($_SESSION['incorrect']); }  ?>
         <form action="login.php" method="post">
             <div class="form-group">
                 <label class="form-label" for="username">Email</label>
