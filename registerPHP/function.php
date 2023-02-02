@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 function get_email($email)
 {
     $pdo = new PDO("mysql:host=localhost;dbname=register;", "root", "");
@@ -55,4 +55,27 @@ function login($email, $password)
         }
     }
 
+}
+
+function login($email , $password){
+    $pdo = new PDO('mysql:host=localhost;dbname=register','root', '');
+    $sql = "SELECT email FROM users WHERE email=:email";
+    $statement = $pdo->prepare($sql);
+    $statement->execute(['email'=>$email]);
+    $mail = $statement->fetch(PDO::FETCH_ASSOC);
+
+    $sq = "SELECT password FROM users WHERE password=:password ";
+    $state = $pdo->prepare($sq);
+    $state->execute(['password'=>$password]);
+    $pass = $state->fetch(PDO::FETCH_ASSOC);
+
+    if (!empty($mail) && !empty($pass)){
+        header('Location: /registerPHP/page_profile.php');
+        $_SESSION['email'] = $email;
+        $_SESSION['password'] = $password;
+        exit();
+    }else{
+        $_SESSION['incorrect'] = 'Неверный логин или пароль';
+        header('Location: /registerPHP/page_login.php');
+    }
 }
