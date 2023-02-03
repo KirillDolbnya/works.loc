@@ -8,5 +8,3 @@ $password = $_POST['password'];
 
 login($email,$password);
 
-
-

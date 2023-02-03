@@ -51,35 +51,23 @@ function login($email , $password){
         header('Location: /registerPHP/users.php');
         $_SESSION['email'] = $email;
         $_SESSION['password'] = $password;
-        $_SESSION['logged'] = "авторизован";
+        $_SESSION['authorized'] = true;
         exit();
     }else{
         $_SESSION['incorrect'] = 'Неверный логин или пароль';
-        echo $_SESSION['notLogged'] = "не авторизован";
-
+        $_SESSION['notAuthorized'] = null;
+        header('Location: /registerPHP/page_login.php');
         die;
+    }
+}
+
+function is_not_logged(){
+    if ($_SESSION == null){
         header('Location: /registerPHP/page_login.php');
     }
 }
 
-function is_not_logget(){
-    if ($_SESSION==['notLogged']){
-        header('Location: /registerPHP/page_login.php');
-        exit();
-    }
+function examination_role(){
 
 }
-
-/*function check_role(){
-    $pdo = new PDO('mysql:host=localhost;dbname=register','root', '');
-    $sql = "SELECT role FROM users";
-    $statement = $pdo->prepare($sql);
-    $statement->execute($_GET);
-    $role_user = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-    if ($role_user == 'admin')
-
-}*/
-
-
 
