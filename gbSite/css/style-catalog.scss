@@ -29,9 +29,10 @@
 
         .catalog{
             display: flex;
-            position: relative;
+            
            
-    
+        
+            
             .filter{
                 padding-left: 20px;
 
@@ -119,13 +120,15 @@
                 }
 
             }
+        
 
             .filter[open]{
                 width: 360px;
                 height: 531px;
                 background: #FFFFFF;
                 position: absolute;
-                // border: 1px solid black;
+                border: 1px solid black;
+
                 // padding-right: 111px;
 
                 summary{
@@ -162,7 +165,6 @@
                 gap: 28px;
                 color: #6F6E6E;
                 margin-left: 290px;
-                position: relative;
 
                 details{
                     
@@ -178,9 +180,12 @@
                 .size[open]{
                     width: 79px;
                     height: 103px;
-                    position: absolute;    
+                    position: absolute;
+
+                    
                     display: block;                
                     summary{
+                        display: block;
                         list-style: none;
                         display: flex;
                         align-items: center;

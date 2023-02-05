@@ -271,101 +271,97 @@ $group = "ИСП9-201 ";
     ?>
 </p>
 
-<table>
-        <tr>
-            <th>№</th>
-            <th>Фамилия</th>
-            <th>Имя</th>
-            <th>Отчество</th>
-            <th>Возраст</th>
-            <th>Номер Телефона</th>
-            <th>Статус</th>
-        </tr>
-    <?php
-        $array = [
-            [
-                'Фамилия' => 'Долбня',
-                'Имя' => 'Кирилл',
-                'Отчество' => 'Валерьевич',
-                'Возраст' => '18',
-                'Телефон' => '8-999-999-00-00',
-                'is_active' => true,
-            ],
-
-            [
-                'Фамилия' => 'Гергов',
-                'Имя' => 'Мурат',
-                'Отчество' => 'Анзорович',
-                'Возраст' => '17',
-                'Телефон' => '8-909-414-19-07',
-                'is_active' => false,
-            ],
-
-            [
-                'Фамилия' => 'Мисирян',
-                'Имя' => 'Артур',
-                'Отчество' => 'Иванович',
-                'Возраст' => '19',
-                'Телефон' => '8-666-777-11-11',
-                'is_active' => true,
-            ],
-
-            [
-                'Фамилия' => 'Ивнов',
-                'Имя' => 'Иван',
-                'Отчество' => 'Иванович',
-                'Возраст' => '22',
-                'Телефон' => '8-908-871-28-17',
-                'is_active' => false,
-            ],
-
-            [
-                'Фамилия' => 'Смирнов',
-                'Имя' => 'Андрей',
-                'Отчество' => 'Андреевич',
-                'Возраст' => '20',
-                'Телефон' => '8-032-823-90-82',
-                'is_active' => false,
-            ],
-
-            [
-                'Фамилия' => 'Фаргиев',
-                'Имя' => 'Герман',
-                'Отчество' => 'Альбертович',
-                'Возраст' => '16',
-                'Телефон' => '8-903-888-43-53',
-                'is_active' => true,
-            ],
-        ];
-
-        
-
-        foreach($array as $number => $student){
-        
-            if($student['is_active']) {  
-                $stydent_text = "Молодец";
-                $stydent_class = "stydOk";
-
-            }else{ 
-                $stydent_text = 'не молодец';
-                $stydent_class = 'styNoOk';
-
-           }?>
+    <table>
             <tr>
-                <td class="<?php echo $stydent_class;?>"><?php echo $number; ?></td>
-                <td class="<?php echo $stydent_class;?>"><?php echo $student['Фамилия']?></td>
-                <td class="<?php echo $stydent_class;?>"><a href='#'><?php echo $student['Имя']; ?></a></td>
-                <td class="<?php echo $stydent_class;?>"><?php echo $student['Отчество'];?></td>
-                <td class="<?php echo $stydent_class;?>"><?php echo $student['Возраст'];?></td>
-                <td class="<?php echo $stydent_class;?>"><?php echo $student['Телефон'];?></td>
-                <td class="<?php echo $stydent_class;?>"><?php echo $stydent_text;?></td>
+                <th>№</th>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Отчество</th>
+                <th>Возраст</th>
+                <th>Номер Телефона</th>
+                <th>Статус</th>
             </tr>
-            <?php } ?>
+        <?php
+           $array = [
+               [
+                   'Фамилия' => 'Долбня',
+                   'Имя' => 'Кирилл',
+                   'Отчество' => 'Валерьевич',
+                   'Возраст' => '18',
+                   'Телефон' => '8-999-999-00-00',
+                   'is_active' => true,
+               ],
 
-          
+               [
+                   'Фамилия' => 'Гергов',
+                   'Имя' => 'Мурат',
+                   'Отчество' => 'Анзорович',
+                   'Возраст' => '17',
+                   'Телефон' => '8-909-414-19-07',
+                   'is_active' => false,
+               ],
+
+               [
+                   'Фамилия' => 'Мисирян',
+                   'Имя' => 'Артур',
+                   'Отчество' => 'Иванович',
+                   'Возраст' => '19',
+                   'Телефон' => '8-666-777-11-11',
+                   'is_active' => true,
+               ],
+
+               [
+                   'Фамилия' => 'Ивнов',
+                   'Имя' => 'Иван',
+                   'Отчество' => 'Иванович',
+                   'Возраст' => '22',
+                   'Телефон' => '8-908-871-28-17',
+                   'is_active' => false,
+               ],
+
+               [
+                   'Фамилия' => 'Смирнов',
+                   'Имя' => 'Андрей',
+                   'Отчество' => 'Андреевич',
+                   'Возраст' => '20',
+                   'Телефон' => '8-032-823-90-82',
+                   'is_active' => false,
+               ],
+
+               [
+                   'Фамилия' => 'Фаргиев',
+                   'Имя' => 'Герман',
+                   'Отчество' => 'Альбертович',
+                   'Возраст' => '16',
+                   'Телефон' => '8-903-888-43-53',
+                   'is_active' => true,
+               ],
+           ];
 
 
-</tabel>
+
+           foreach($array as $number => $student){
+
+               if($student['is_active']) {
+                   $stydent_text = "Молодец";
+                   $stydent_class = "stydOk";
+
+               }else{
+                   $stydent_text = 'не молодец';
+                   $stydent_class = 'styNoOk';
+
+              }?>
+               <tr>
+                   <td class="<?php echo $stydent_class;?>"><?php echo $number; ?></td>
+                   <td class="<?php echo $stydent_class;?>"><?php echo $student['Фамилия']?></td>
+                   <td class="<?php echo $stydent_class;?>"><a href='#'><?php echo $student['Имя']; ?></a></td>
+                   <td class="<?php echo $stydent_class;?>"><?php echo $student['Отчество'];?></td>
+                   <td class="<?php echo $stydent_class;?>"><?php echo $student['Возраст'];?></td>
+                   <td class="<?php echo $stydent_class;?>"><?php echo $student['Телефон'];?></td>
+                   <td class="<?php echo $stydent_class;?>"><?php echo $stydent_text;?></td>
+               </tr>
+               <?php } ?>
+    </table>
 
 <div class="slider">
 

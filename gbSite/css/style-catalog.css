@@ -89,7 +89,6 @@
 }
 .cards .catalog {
   display: flex;
-  position: relative;
 }
 .cards .catalog .filter {
   padding-left: 20px;
@@ -176,6 +175,7 @@
   height: 531px;
   background: #FFFFFF;
   position: absolute;
+  border: 1px solid black;
 }
 .cards .catalog .filter[open] summary {
   color: #EF5B70;
@@ -200,7 +200,6 @@
   gap: 28px;
   color: #6F6E6E;
   margin-left: 290px;
-  position: relative;
 }
 .cards .catalog .sort details summary {
   list-style: none;
@@ -215,6 +214,7 @@
   display: block;
 }
 .cards .catalog .sort .size[open] summary {
+  display: block;
   list-style: none;
   display: flex;
   align-items: center;

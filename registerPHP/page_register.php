@@ -1,5 +1,7 @@
 <?php
 session_start();
+/*session_unset();
+session_destroy();*/
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +70,7 @@ session_start();
                                         <?php echo $_SESSION['error']; ?>
                                     </div>
                                     <?php unset($_SESSION['error']); } ?>
-                                    <form id="js-login" novalidate="" action="create.php" method="post">
+                                    <form id="js-login" novalidate="" action="create_script.php" method="post">
                                         <div class="form-group">
                                             <label class="form-label" for="emailverify">Email</label>
                                             <input type="email" name="email" id="emailverify" class="form-control" placeholder="Эл. адрес" required>
