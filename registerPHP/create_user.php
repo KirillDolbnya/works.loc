@@ -1,18 +1,16 @@
 <?php
 session_start();
+
 /*session_unset();
 session_destroy();*/
 
-
 require ('function.php');
-
 
 is_not_logged();
 
-if (examination_role()!==$_SESSION['user']){
+if ($_SESSION['user']['role']!=='admin'){
     redirect('/registerPHP/page_login.php');
 }
-
 
 
 ?>
@@ -34,7 +32,7 @@ if (examination_role()!==$_SESSION['user']){
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-primary-gradient">
-        <a class="navbar-brand d-flex align-items-center fw-500" href="users.html"><img alt="logo" class="d-inline-block align-top mr-2" src="img/logo.png"> Учебный проект</a> <button aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarColor02" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+        <a class="navbar-brand d-flex align-items-center fw-500" href="users.php"><img alt="logo" class="d-inline-block align-top mr-2" src="img/logo.png"> Учебный проект</a> <button aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarColor02" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -43,7 +41,7 @@ if (examination_role()!==$_SESSION['user']){
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="page_login.html">Войти</a>
+                    <a class="nav-link" href="page_login.php">Войти</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Выйти</a>
@@ -55,14 +53,12 @@ if (examination_role()!==$_SESSION['user']){
         <div class="subheader">
             <h1 class="subheader-title">
                 <i class='subheader-icon fal fa-plus-circle'></i> Добавить пользователя
+                    <?php if (isset($_SESSION['error'])){ ?>
+                        <div class="alert alert-danger text-dark" role="alert">
+                            <?php echo $_SESSION['error']; ?>
+                        </div>
+                    <?php unset($_SESSION['error']); } ?>
             </h1>
-
-                <?php if (isset($_SESSION['error'])){ ?>
-                    <div class="alert alert-danger text-dark" role="alert">
-                        <?php echo $_SESSION['error']; ?>
-                    </div>
-                <?php unset($_SESSION['error']); } ?>
-
         </div>
         <form action="admin_create_user.php"  method="post">
             <div class="row">
@@ -124,10 +120,10 @@ if (examination_role()!==$_SESSION['user']){
                                 <!-- status -->
                                 <div class="form-group">
                                     <label class="form-label" for="example-select">Выберите статус</label>
-                                    <select class="form-control" id="example-select">
-                                        <option>Онлайн</option>
-                                        <option>Отошел</option>
-                                        <option>Не беспокоить</option>
+                                    <select class="form-control" id="example-select" name="status">
+                                        <option value="success">Онлайн</option>
+                                        <option value="warning">Отошел</option>
+                                        <option value="danger">Не беспокоить</option>
                                     </select>
                                 </div>
 
@@ -160,7 +156,7 @@ if (examination_role()!==$_SESSION['user']){
                                                     </span>
                                                 </span>
                                             </div>
-                                            <input type="text" class="form-control border-left-0 bg-transparent pl-0">
+                                            <input name="vk" type="text" class="form-control border-left-0 bg-transparent pl-0">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -174,7 +170,7 @@ if (examination_role()!==$_SESSION['user']){
                                                     </span>
                                                 </span>
                                             </div>
-                                            <input type="text" class="form-control border-left-0 bg-transparent pl-0">
+                                            <input name="tg" type="text" class="form-control border-left-0 bg-transparent pl-0">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -188,7 +184,7 @@ if (examination_role()!==$_SESSION['user']){
                                                     </span>
                                                 </span>
                                             </div>
-                                            <input type="text" class="form-control border-left-0 bg-transparent pl-0">
+                                            <input name="inst" type="text" class="form-control border-left-0 bg-transparent pl-0">
                                         </div>
                                     </div>
                                     <div class="col-md-12 mt-3 d-flex flex-row-reverse">
