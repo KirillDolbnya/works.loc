@@ -65,8 +65,8 @@ var_dump($_SESSION);
             </div>
             <div class="row">
                 <div class="col-xl-12">
-                    <?php if (examination_role()==$_SESSION['user']){ ?>
-                        <a class="btn btn-success" href="create_user.html">
+                    <?php if ($_SESSION['user']["role"]== 'admin'){ ?>
+                        <a class="btn btn-success" href="create_user.php">
                             Добавить
                         </a>
                     <?php } ?>
@@ -89,13 +89,13 @@ var_dump($_SESSION);
                         <div id="c_1" class="card border shadow-0 mb-g shadow-sm-hover" data-filter-tags="oliver kopyov">
                             <div class="card-body border-faded border-top-0 border-left-0 border-right-0 rounded-top">
                                 <div class="d-flex flex-row align-items-center">
-                                    <span class="<?php echo $value['status'] ?> status-success mr-3">
+                                    <span class="status status-<?php echo $value['status'] ?> mr-3">
                                         <span class="rounded-circle profile-image d-block " style="background-image:url('<?php echo $value['image'] ?>'); background-size: cover;"></span>
                                     </span>
                                     <div class="info-card-text flex-1">
                                         <a href="javascript:void(0);" class="fs-xl text-truncate text-truncate-lg text-info" data-toggle="dropdown" aria-expanded="false">
                                             <?php echo $value['name'] ?>
-                                            <?php if($value == $_SESSION['user'] || examination_role()==$_SESSION['user']){ ?>
+                                            <?php if($value == $_SESSION['user'] ||$_SESSION['user']["role"]== 'admin'){ ?>
                                             <i class="fal fas fa-cog fa-fw d-inline-block ml-1 fs-md"></i>
                                             <i class="fal fa-angle-down d-inline-block ml-1 fs-md"></i>
                                         </a>
@@ -119,7 +119,7 @@ var_dump($_SESSION);
                                                 </a>
                                             </div>
                                         <?php } ?>
-                                        <span class="text-truncate text-truncate-xl"><?php echo $value['job'] ?></span>
+                                        <br><span class="text-truncate text-truncate-xl"><?php echo $value['job'] ?></span>
                                     </div>
                                     <button class="js-expand-btn btn btn-sm btn-default d-none" data-toggle="collapse" data-target="#c_1 > .card-body + .card-body" aria-expanded="false">
                                         <span class="collapsed-hidden">+</span>

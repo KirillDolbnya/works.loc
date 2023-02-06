@@ -2,9 +2,15 @@
 session_start();
 /*session_unset();
 session_destroy();*/
+
+function connection_bd(){
+    $pdo = new PDO("mysql:host=localhost;dbname=register;", "root", "");
+    return $pdo;
+}
+
 function get_email($email)
 {
-    $pdo = new PDO("mysql:host=localhost;dbname=register;", "root", "");
+    $pdo=new PDO("mysql:host=localhost;dbname=register;", "root", "");
 
     $sql = "SELECT email FROM authUsers WHERE email=:email";
     $statement = $pdo->prepare($sql);
@@ -27,7 +33,7 @@ function redirect($redirect)
 
 function add_user($email, $password)
 {
-    $pdo = new PDO("mysql:host=localhost;dbname=register;", "root", "");
+    $pdo=new PDO("mysql:host=localhost;dbname=register;", "root", "");
     $sql = "INSERT INTO authUsers (email , password) VALUES (:email , :password)";
     $statement = $pdo->prepare($sql);
     $statement->execute([
@@ -37,7 +43,7 @@ function add_user($email, $password)
 }
 
 function login($email , $password){
-    $pdo = new PDO('mysql:host=localhost;dbname=register','root', '');
+    $pdo=new PDO("mysql:host=localhost;dbname=register;", "root", "");
     $sql = "SELECT email FROM authUsers WHERE email=:email";
     $statement = $pdo->prepare($sql);
     $statement->execute(['email'=>$email]);
@@ -57,12 +63,12 @@ function login($email , $password){
         $user = $stat->fetch(PDO::FETCH_ASSOC);
         $_SESSION['user'] = $user;
         var_dump($_SESSION['user']);
-        header('Location: /registerPHP/users.php');
+        redirect('/registerPHP/users.php');
 
         exit();
     }else{
         $_SESSION['incorrect'] = 'Неверный логин или пароль';
-        header('Location: /registerPHP/page_login.php');
+        redirect('/registerPHP/page_login.php');
         exit();
     }
 }
@@ -71,22 +77,14 @@ function login($email , $password){
 
 function is_not_logged(){
     if (empty($_SESSION)) {
-        header('Location: /registerPHP/page_login.php');
+        redirect('/registerPHP/page_login.php');
         exit();
     }
 }
 
-function examination_role(){
-    $pdo = new PDO("mysql:host=localhost;dbname=register;" , "root" , "");
-    $sql = "SELECT * FROM authUsers WHERE role='admin'";
-    $statement = $pdo->prepare($sql);
-    $statement->execute();
-    $userAdmin = $statement->fetch(PDO::FETCH_ASSOC);
-    return $userAdmin;
-}
 
 function get_users(){
-    $pdo = new PDO("mysql:host=localhost;dbname=register;","root","");
+    $pdo=new PDO("mysql:host=localhost;dbname=register;", "root", "");
     $sql = "SELECT * FROM authUsers";
     $statement = $pdo->prepare($sql);
     $statement->execute();
@@ -94,16 +92,25 @@ function get_users(){
     return $users;
 }
 
-function check_id(){
-    $pdo = new PDO("mysql:host=localhost;dbname=register;","root","");
-    $sql = "SELECT id FROM authUsers";
-    $statement = $pdo->prepare($sql);
-    $statement->execute();
-    $id = $statement->fetch(PDO::FETCH_ASSOC);
 
-    return $id;
+function add_user_admin($name,$job,$number,$address){
+    $pdo=new PDO("mysql:host=localhost;dbname=register;", "root", "");
+    $sql = "INSERT INTO authUsers (name, job, number, address) VALUES (:name,:job,:number,:address)";
+    $statement = $pdo->prepare($sql);
+    $statement->execute(
+        [
+            'name'=>$name,
+            'job'=>$job,
+            'number'=>$number,
+            'address'=>$address,
+        ]
+    );
 
 }
+
+
+
+
 
 
 

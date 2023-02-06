@@ -1,7 +1,5 @@
 <?php
-    session_start();
 
-    /*var_dump($_SESSION['email'],$_SESSION['password']);*/
 ?>
 
 <!DOCTYPE html>
