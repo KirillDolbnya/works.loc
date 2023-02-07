@@ -120,7 +120,7 @@ function add_status($status,$email){
     ]);
 }
 
-function image_profile($image,$email){
+/*function image_profile($image,$email){
     $pdo = connection_bd();
     $sql = "UPDATE users SET image=:image WHERE email=:email";
     $statement = $pdo->prepare($sql);
@@ -128,7 +128,7 @@ function image_profile($image,$email){
         'image'=> $image,
         'email'=>$email,
     ]);
-}
+}*/
 
 function social($vk,$tg,$inst,$email){
     $pdo = connection_bd();
@@ -141,6 +141,24 @@ function social($vk,$tg,$inst,$email){
         'email'=>$email,
     ]);
 }
+
+function by_id(){
+    $pdo = connection_bd();
+    $sql = "SELECT * FROM users WHERE id=:id";
+    $statement = $pdo->prepare($sql);
+    $statement->execute($_GET);
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
+    return $user;
+}
+
+
+/*function is_author($idSession,$idProfil){
+    if ($idSession !== $idProfil){
+        flesh_message('badly','Можно редактировать только свой профиль');
+        redirect('/registerPHP/users.php');
+        exit();
+    }
+}*/
 
 
 

@@ -66,7 +66,7 @@ if ($_SESSION['user']['role']!=='admin'){
                     <?php unset($_SESSION['bad']); } ?>
             </h1>
         </div>
-        <form action="admin_create_user.php"  method="post">
+        <form action="admin_create_user.php"  method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-xl-6">
                     <div id="panel-1" class="panel">

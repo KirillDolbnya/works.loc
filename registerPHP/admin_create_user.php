@@ -1,5 +1,7 @@
 <?php
 session_start();
+/*session_unset();
+session_destroy();*/
 
 require ('function.php');
 
@@ -16,13 +18,11 @@ $vk = $_POST['vk'];
 $tg = $_POST['tg'];
 $inst = $_POST['inst'];
 
-/*$_FILES = $_POST['image'];*/
-/*$name = $_FILES['name'];
-$image = $_FILES['image'];*/
 
-var_dump($_FILES['image']);
-exit();
+/*$image = $_FILES['image'];*/
 
+/*var_dump($image);
+exit();*/
 /*var_dump($_POST);
 exit();*/
 
@@ -31,7 +31,7 @@ $user = get_email($email);
 if (!empty($user)) {
     flesh_message('error', 'Эл. ад. уже занят другим пользователем');
     redirect('/registerPHP/create_user.php');
-}elseif($email == null && $password == null ){
+}elseif($email == null || $password == null ){
     flesh_message('bad','Введите почту и пароль');
     redirect('/registerPHP/create_user.php');
 }else{
@@ -39,7 +39,7 @@ if (!empty($user)) {
     edit_info($name,$job,$number,$address,$email);
     add_status($status,$email);
     social($vk,$tg,$inst,$email);
-    image_profile($image,$email);
+    /*image_profile($image,$email);*/
     flesh_message('good','Пользователь успешно добавлен');
     redirect('/registerPHP/users.php');
 }

@@ -60,6 +60,12 @@ var_dump($_SESSION);
                 <?php echo $_SESSION['good']; ?>
             </div>
             <?php unset($_SESSION['good']); } ?>
+
+            <?php if (isset($_SESSION['badly'])){ ?>
+                <div class="alert alert-danger">
+                    <?php echo $_SESSION['badly']; ?>
+                </div>
+                <?php unset($_SESSION['badly']); } ?>
             <div class="subheader">
                 <h1 class="subheader-title">
                     <i class='subheader-icon fal fa-users'></i> Список пользователей
@@ -86,7 +92,8 @@ var_dump($_SESSION);
                 </div>
             </div>
             <div class="row" id="js-contacts">
-                <?php foreach ($users as $user => $value){ ?>
+                <?php foreach ($users as $user => $value){
+                    var_dump($value['id']);?>
                     <div class="col-xl-4">
                         <div id="c_1" class="card border shadow-0 mb-g shadow-sm-hover" data-filter-tags="oliver kopyov">
                             <div class="card-body border-faded border-top-0 border-left-0 border-right-0 rounded-top">
@@ -97,12 +104,12 @@ var_dump($_SESSION);
                                     <div class="info-card-text flex-1">
                                         <a href="javascript:void(0);" class="fs-xl text-truncate text-truncate-lg text-info" data-toggle="dropdown" aria-expanded="false">
                                             <?php echo $value['name'] ?>
-                                            <?php if($value == $_SESSION['user'] ||$_SESSION['user']["role"]== 'admin'){ ?>
+                                            <?php if($value == $_SESSION['user'] ||$_SESSION['user']["role"] == 'admin'){ ?>
                                             <i class="fal fas fa-cog fa-fw d-inline-block ml-1 fs-md"></i>
                                             <i class="fal fa-angle-down d-inline-block ml-1 fs-md"></i>
                                         </a>
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="edit.html">
+                                                <a class="dropdown-item" href="edit.php?id=<?php echo $value['id'] ?>">
                                                     <i class="fa fa-edit"></i>
                                                     Редактировать</a>
                                                 <a class="dropdown-item" href="security.html">
