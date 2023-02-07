@@ -58,6 +58,12 @@ if ($_SESSION['user']['role']!=='admin'){
                             <?php echo $_SESSION['error']; ?>
                         </div>
                     <?php unset($_SESSION['error']); } ?>
+
+                <?php if (isset($_SESSION['bad'])){ ?>
+                    <div class="alert alert-danger text-dark" role="alert">
+                        <?php echo $_SESSION['bad']; ?>
+                    </div>
+                    <?php unset($_SESSION['bad']); } ?>
             </h1>
         </div>
         <form action="admin_create_user.php"  method="post">
@@ -129,7 +135,7 @@ if ($_SESSION['user']['role']!=='admin'){
 
                                 <div class="form-group">
                                     <label class="form-label" for="example-fileinput">Загрузить аватар</label>
-                                    <input type="file" id="example-fileinput" class="form-control-file">
+                                    <input type="file" value="../" name="image" id="example-fileinput" class="form-control-file">
                                 </div>
                             </div>
                         </div>

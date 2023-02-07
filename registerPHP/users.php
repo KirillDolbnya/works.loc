@@ -55,9 +55,11 @@ var_dump($_SESSION);
         </nav>
 
         <main id="js-page-content" role="main" class="page-content mt-3">
+            <?php if (isset($_SESSION['good'])){ ?>
             <div class="alert alert-success">
-                Профиль успешно обновлен.
+                <?php echo $_SESSION['good']; ?>
             </div>
+            <?php unset($_SESSION['good']); } ?>
             <div class="subheader">
                 <h1 class="subheader-title">
                     <i class='subheader-icon fal fa-users'></i> Список пользователей

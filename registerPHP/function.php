@@ -39,12 +39,13 @@ function add_user($email, $password)
         'email' => $email,
         'password' => $password,
     ]);
-/*  $dataBase = "SELECT id FROM users WHERE email=:email";
-    $statem = $pdo->prepare($dataBase);
-    $statem->execute(['email'=>$email]);
-    $id = $statem->fetch(PDO::FETCH_ASSOC);
-    return $id;*/
+
+/*    $id = $pdo->lastInsertId();
+    return $id;
+    var_dump($id);*/
 }
+
+/*add_user($email,$password);*/
 
 function login($email , $password){
     $pdo=connection_bd();
@@ -119,9 +120,15 @@ function add_status($status,$email){
     ]);
 }
 
-/*function image_profile($image){
-
-}*/
+function image_profile($image,$email){
+    $pdo = connection_bd();
+    $sql = "UPDATE users SET image=:image WHERE email=:email";
+    $statement = $pdo->prepare($sql);
+    $statement->execute([
+        'image'=> $image,
+        'email'=>$email,
+    ]);
+}
 
 function social($vk,$tg,$inst,$email){
     $pdo = connection_bd();
