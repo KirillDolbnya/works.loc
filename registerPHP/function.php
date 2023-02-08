@@ -156,6 +156,10 @@ function getUser(){
 //
 //}
 
+
+
+
+
 function edit_user_email_password($email,$password,$id){
     $pdo = connection_bd();
     $sql = "UPDATE users SET email=:email, password=:password WHERE id=:id";

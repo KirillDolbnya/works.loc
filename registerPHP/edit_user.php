@@ -11,6 +11,9 @@ $email = $_SESSION['email'];
 
 
 
+
+
+
 edit_info($name,$job,$number,$address,$email);
 
 redirect('/registerPHP/users.php');

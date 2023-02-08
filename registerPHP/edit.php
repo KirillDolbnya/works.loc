@@ -7,6 +7,11 @@ require ('function.php');
 is_not_logged();
 
 
+
+
+
+
+
 $user = getUser();
 
 $_SESSION['email'] = $user['email'];
