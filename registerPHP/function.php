@@ -142,13 +142,28 @@ function social($vk,$tg,$inst,$email){
     ]);
 }
 
-function by_id(){
+function getUser(){
     $pdo = connection_bd();
     $sql = "SELECT * FROM users WHERE id=:id";
     $statement = $pdo->prepare($sql);
     $statement->execute($_GET);
     $user = $statement->fetch(PDO::FETCH_ASSOC);
     return $user;
+}
+
+//function thisUser(){
+//
+//}
+
+function edit_user_email_password($email,$password,$id){
+    $pdo = connection_bd();
+    $sql = "UPDATE users SET email=:email, password=:password WHERE id=:id";
+    $statement = $pdo->prepare($sql);
+    $statement->execute([
+        'email'=> $email,
+        'password' => $password,
+        'id'=>$id,
+    ]);
 }
 
 

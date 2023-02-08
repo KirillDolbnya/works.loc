@@ -1,12 +1,15 @@
 <?php
 session_start();
+/*session_unset();
+session_destroy();*/
 
 require ('function.php');
 
 is_not_logged();
 
-$user = by_id();
+$user = getUser();
 
+var_dump($_SESSION);
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +46,11 @@ $user = by_id();
                 </ul>
             </div>
         </nav>
+        <?php if (isset($_SESSION['goodEdit'])){ ?>
+            <div class="alert alert-success text-success" role="alert">
+                <?php echo $_SESSION['goodEdit']; ?>
+            </div>
+            <?php unset($_SESSION['goodEdit']); } ?>
         <main id="js-page-content" role="main" class="page-content mt-3">
             <div class="subheader">
                 <h1 class="subheader-title">

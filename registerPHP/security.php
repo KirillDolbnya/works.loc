@@ -1,3 +1,25 @@
+<?php
+session_start();
+/*session_unset();
+session_destroy();*/
+
+require ('function.php');
+
+is_not_logged();
+
+$userEdit = getUser();
+
+
+if ($_SESSION['user']['role'] !== 'admin' && $_SESSION['user']['id'] !== $userEdit['id']){
+    flesh_message('badly', 'Можно редактировать только свой профиль');
+    redirect('/registerPHP/users.php');
+    exit();
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +36,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-primary-gradient">
-        <a class="navbar-brand d-flex align-items-center fw-500" href="users.html"><img alt="logo" class="d-inline-block align-top mr-2" src="img/logo.png"> Учебный проект</a> <button aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarColor02" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+        <a class="navbar-brand d-flex align-items-center fw-500" href="users.php"><img alt="logo" class="d-inline-block align-top mr-2" src="img/logo.png"> Учебный проект</a> <button aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarColor02" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
@@ -23,7 +45,7 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="page_login.html">Войти</a>
+                    <a class="nav-link" href="page_login.php">Войти</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Выйти</a>
@@ -36,9 +58,25 @@
             <h1 class="subheader-title">
                 <i class='subheader-icon fal fa-lock'></i> Безопасность
             </h1>
+            <?php if (isset($_SESSION['error'])){ ?>
+                <div class="alert alert-danger text-dark" role="alert">
+                    <?php echo $_SESSION['error']; ?>
+                </div>
+            <?php unset($_SESSION['error']); } ?>
 
+            <?php if (isset($_SESSION['badPassword'])){ ?>
+                <div class="alert alert-danger text-dark" role="alert">
+                    <?php echo $_SESSION['badPassword']; ?>
+                </div>
+                <?php unset($_SESSION['badPassword']); } ?>
+
+            <?php if (isset($_SESSION['bad'])){ ?>
+                <div class="alert alert-danger text-dark" role="alert">
+                    <?php echo $_SESSION['bad']; ?>
+                </div>
+            <?php unset($_SESSION['bad']); } ?>
         </div>
-        <form action="">
+        <form action="security_edit.php" method="post">
             <div class="row">
                 <div class="col-xl-6">
                     <div id="panel-1" class="panel">
@@ -50,21 +88,22 @@
                                 <!-- email -->
                                 <div class="form-group">
                                     <label class="form-label" for="simpleinput">Email</label>
-                                    <input type="text" id="simpleinput" class="form-control" value="john@example.com">
+                                    <input type="text" name="email" id="simpleinput" class="form-control" value="<?php echo $userEdit['email'] ?>">
                                 </div>
 
                                 <!-- password -->
                                 <div class="form-group">
                                     <label class="form-label" for="simpleinput">Пароль</label>
-                                    <input type="password" id="simpleinput" class="form-control">
+                                    <input type="password" name="password" id="simpleinput" class="form-control">
                                 </div>
 
                                 <!-- password confirmation-->
                                 <div class="form-group">
                                     <label class="form-label" for="simpleinput">Подтверждение пароля</label>
-                                    <input type="password" id="simpleinput" class="form-control">
+                                    <input type="password" name="password-confirm" id="simpleinput" class="form-control">
                                 </div>
 
+                                <input type="hidden" name="id" value="<?php echo $userEdit["id"];?>">
 
                                 <div class="col-md-12 mt-3 d-flex flex-row-reverse">
                                     <button class="btn btn-warning">Изменить</button>

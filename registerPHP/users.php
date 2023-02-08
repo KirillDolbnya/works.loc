@@ -105,7 +105,7 @@ var_dump($_SESSION);
                                     <div class="info-card-text flex-1">
                                         <a href="javascript:void(0);" class="fs-xl text-truncate text-truncate-lg text-info" data-toggle="dropdown" aria-expanded="false">
                                             <?php echo $value['name'] ?>
-                                            <?php if($value == $_SESSION['user'] ||$_SESSION['user']["role"] == 'admin'){ ?>
+                                            <?php if($value['id'] == $_SESSION['user']['id'] ||$_SESSION['user']["role"] == 'admin'){ ?>
                                             <i class="fal fas fa-cog fa-fw d-inline-block ml-1 fs-md"></i>
                                             <i class="fal fa-angle-down d-inline-block ml-1 fs-md"></i>
                                         </a>
@@ -113,7 +113,7 @@ var_dump($_SESSION);
                                                 <a class="dropdown-item" href="edit.php?id=<?php echo $value['id'] ?>">
                                                     <i class="fa fa-edit"></i>
                                                     Редактировать</a>
-                                                <a class="dropdown-item" href="security.html">
+                                                <a class="dropdown-item" href="security.php?id=<?php echo $value['id'] ?>">
                                                     <i class="fa fa-lock"></i>
                                                     Безопасность</a>
                                                 <a class="dropdown-item" href="status.html">

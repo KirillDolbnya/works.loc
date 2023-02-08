@@ -7,18 +7,13 @@ require ('function.php');
 is_not_logged();
 
 
-$user = by_id();
-var_dump($user['id']);
+$user = getUser();
 
 $_SESSION['email'] = $user['email'];
 
-$idSession = $_SESSION['user']['id'];
-var_dump($idSession);
 
-if ($_SESSION['user']['role'] == 'admin' || $idSession == $user['id']){
-
-}else{
-    flesh_message('badly' , 'Можно редактировать только свой профиль');
+if ($_SESSION['user']['role'] !== 'admin' && $_SESSION['user']['id'] !== $user['id']){
+    flesh_message('badly', 'Можно редактировать только свой профиль');
     redirect('/registerPHP/users.php');
     exit();
 }
