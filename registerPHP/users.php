@@ -92,8 +92,7 @@ var_dump($_SESSION);
                 </div>
             </div>
             <div class="row" id="js-contacts">
-                <?php foreach ($users as $user => $value){
-                    var_dump($value['id']);?>
+                <?php foreach ($users as $user => $value){ ?>
                     <div class="col-xl-4">
                         <div id="c_1" class="card border shadow-0 mb-g shadow-sm-hover" data-filter-tags="oliver kopyov">
                             <div class="card-body border-faded border-top-0 border-left-0 border-right-0 rounded-top">

@@ -152,13 +152,6 @@ function by_id(){
 }
 
 
-/*function is_author($idSession,$idProfil){
-    if ($idSession !== $idProfil){
-        flesh_message('badly','Можно редактировать только свой профиль');
-        redirect('/registerPHP/users.php');
-        exit();
-    }
-}*/
 
 
 

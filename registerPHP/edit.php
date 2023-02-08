@@ -10,6 +10,7 @@ is_not_logged();
 $user = by_id();
 var_dump($user['id']);
 
+$_SESSION['email'] = $user['email'];
 
 $idSession = $_SESSION['user']['id'];
 var_dump($idSession);
@@ -21,6 +22,8 @@ if ($_SESSION['user']['role'] == 'admin' || $idSession == $user['id']){
     redirect('/registerPHP/users.php');
     exit();
 }
+
+
 
 
 ?>
