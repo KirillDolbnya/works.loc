@@ -12,6 +12,7 @@ $users = get_users();
 var_dump($_SESSION);
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

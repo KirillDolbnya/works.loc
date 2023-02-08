@@ -142,6 +142,7 @@ function social($vk,$tg,$inst,$email){
     ]);
 }
 
+
 function getUser(){
     $pdo = connection_bd();
     $sql = "SELECT * FROM users WHERE id=:id";
