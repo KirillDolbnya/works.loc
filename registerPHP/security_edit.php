@@ -17,6 +17,10 @@ $id = $userID['id'];
 
 
 
+
+
+
+
 $user = get_email($email);
 if (!empty($user)) {
     flesh_message('error', 'Эл. ад. уже занят другим пользователем');
