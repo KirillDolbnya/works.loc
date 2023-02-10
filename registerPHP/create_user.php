@@ -130,7 +130,8 @@ if ($_SESSION['user']['role']!=='admin'){
                                         <option value="success">Онлайн</option>
                                         <option value="warning">Отошел</option>
                                         <option value="danger">Не беспокоить</option>
-                                    </select>
+
+                                   </select>
                                 </div>
 
                                 <div class="form-group">

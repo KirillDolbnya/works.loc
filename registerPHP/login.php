@@ -19,11 +19,11 @@ if (empty($user['email'])){
     exit();
 }
 
-if (){
-    $_SESSION['incorrect'] = 'Неверный логин или пароль';
-    redirect('/registerPHP/page_login.php');
-    exit();
-}
+//if (){
+//    $_SESSION['incorrect'] = 'Неверный логин или пароль';
+//    redirect('/registerPHP/page_login.php');
+//    exit();
+//}
 
 //$userPass = $password;
 //$hash = password_hash($userPass, PASSWORD_DEFAULT);
