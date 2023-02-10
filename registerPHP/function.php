@@ -32,50 +32,39 @@ function redirect($redirect)
 
 function add_user($email, $password)
 {
+    /*$password_hash = password_hash($password , PASSWORD_DEFAULT);*/
     $pdo=connection_bd();
     $sql = "INSERT INTO users (email , password) VALUES (:email , :password)";
     $statement = $pdo->prepare($sql);
     $statement->execute([
         'email' => $email,
-        'password' => $password,
+        'password' => password_hash($password,PASSWORD_DEFAULT),
     ]);
-
-/*    $id = $pdo->lastInsertId();
-    return $id;
-    var_dump($id);*/
 }
 
-/*add_user($email,$password);*/
-
-function login($email , $password){
+function login($email){
     $pdo=connection_bd();
-    $sql = "SELECT email FROM users WHERE email=:email";
+    $sql = "SELECT * FROM users WHERE email=:email";
     $statement = $pdo->prepare($sql);
     $statement->execute(['email'=>$email]);
-    $mail = $statement->fetch(PDO::FETCH_ASSOC);
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
+    return $user;
 
-
-    $sq = "SELECT password FROM users WHERE password=:password ";
-    $state = $pdo->prepare($sq);
-    $state->execute(['password'=>$password]);
-    $pass = $state->fetch(PDO::FETCH_ASSOC);
-
-
-    if (!empty($mail) && !empty($pass)){
-        $mysql = 'SELECT * FROM users WHERE email=:email';
-        $stat = $pdo->prepare($mysql);
-        $stat->execute(['email'=>$email]);
-        $user = $stat->fetch(PDO::FETCH_ASSOC);
-        $_SESSION['user'] = $user;
-        var_dump($_SESSION['user']);
-        redirect('/registerPHP/users.php');
-
-        exit();
-    }else{
-        $_SESSION['incorrect'] = 'Неверный логин или пароль';
-        redirect('/registerPHP/page_login.php');
-        exit();
-    }
+//    if (!empty($mail) && !empty($pass)){
+//        $mysql = 'SELECT * FROM users WHERE email=:email';
+//        $stat = $pdo->prepare($mysql);
+//        $stat->execute(['email'=>$email]);
+//        $user = $stat->fetch(PDO::FETCH_ASSOC);
+//        $_SESSION['user'] = $user;
+//        var_dump($_SESSION['user']);
+//        redirect('/registerPHP/users.php');
+//
+//        exit();
+//    }else{
+//        $_SESSION['incorrect'] = 'Неверный логин или пароль';
+//        redirect('/registerPHP/page_login.php');
+//        exit();
+//    }
 }
 
 
@@ -126,15 +115,15 @@ function upload_file($file){
     move_uploaded_file($file['image']['tmp_name'], 'upload/'.$filename);
 }
 
-//function add_file($email , $image){
-//    $pdo = connection_bd();
-//    $sql = "UPDATE users SET image=:image WHERE email=:email";
-//    $statement = $pdo->prepare($sql);
-//    $statement->execute([
-//        'image'=> $image,
-//        'email'=>$email,
-//    ]);
-//}
+/*function add_file($email , $image){
+    $pdo = connection_bd();
+    $sql = "UPDATE users SET image=:image WHERE email=:email";
+    $statement = $pdo->prepare($sql);
+    $statement->execute([
+        'image'=> $image,
+        'email'=>$email,
+    ]);
+}*/
 
 function social($vk,$tg,$inst,$email){
     $pdo = connection_bd();

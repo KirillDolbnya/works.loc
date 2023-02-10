@@ -19,7 +19,7 @@ $tg = $_POST['tg'];
 $inst = $_POST['inst'];
 
 $file = $_FILES;
-upload_file($file);
+var_dump(upload_file($file));
 
 
 $user = get_email($email);
