@@ -15,7 +15,6 @@ $address = $_POST['address'];
 $status = $_POST['status'];
 
 
-
 $vk = $_POST['vk'];
 $tg = $_POST['tg'];
 $inst = $_POST['inst'];

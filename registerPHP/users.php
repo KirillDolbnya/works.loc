@@ -9,9 +9,8 @@ is_not_logged();
 
 $users = get_users();
 
-var_dump($_SESSION);
+//var_dump($_SESSION);
 ?>
-
 
 
 

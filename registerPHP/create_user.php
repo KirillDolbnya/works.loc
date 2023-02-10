@@ -133,7 +133,6 @@ if ($_SESSION['user']['role']!=='admin'){
 
                                    </select>
                                 </div>
-
                                 <div class="form-group">
                                     <label class="form-label" for="example-fileinput">Загрузить аватар</label>
                                     <input type="file" name="image" id="example-fileinput" class="form-control-file">

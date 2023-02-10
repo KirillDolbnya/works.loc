@@ -30,10 +30,11 @@ if (empty($user['email'])){
 //$hash = $user['password'];
 
 
-//if (password_verify($password, $user['password'])) {
-//    $_SESSION['incorrect'] = 'Неверный логин или пароль';
-//    redirect('/registerPHP/page_login.php');
-//    exit();
-//}
+
+if (password_verify($password, $user['password'])) {
+    $_SESSION['incorrect'] = 'Неверный логин или пароль';
+    redirect('/registerPHP/page_login.php');
+    exit();
+}
 
 //redirect('/registerPHP/users.php');

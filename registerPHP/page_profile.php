@@ -9,7 +9,7 @@ is_not_logged();
 
 $user = getUser();
 
-var_dump($_SESSION);
+//var_dump($_SESSION);
 ?>
 
 

@@ -44,6 +44,7 @@ function add_user($email, $password)
 
 
 
+
 function login($email){
     $pdo=connection_bd();
     $sql = "SELECT * FROM users WHERE email=:email";
