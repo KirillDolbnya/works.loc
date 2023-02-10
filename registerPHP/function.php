@@ -120,15 +120,21 @@ function add_status($status,$email){
     ]);
 }
 
-/*function image_profile($image,$email){
-    $pdo = connection_bd();
-    $sql = "UPDATE users SET image=:image WHERE email=:email";
-    $statement = $pdo->prepare($sql);
-    $statement->execute([
-        'image'=> $image,
-        'email'=>$email,
-    ]);
-}*/
+function upload_file($file){
+    $result = pathinfo($file['image']['name']);
+    $filename = uniqid() . '.' . $result['extension'];
+    move_uploaded_file($file['image']['tmp_name'], 'upload/'.$filename);
+}
+
+//function add_file($email , $image){
+//    $pdo = connection_bd();
+//    $sql = "UPDATE users SET image=:image WHERE email=:email";
+//    $statement = $pdo->prepare($sql);
+//    $statement->execute([
+//        'image'=> $image,
+//        'email'=>$email,
+//    ]);
+//}
 
 function social($vk,$tg,$inst,$email){
     $pdo = connection_bd();
