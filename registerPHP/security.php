@@ -7,23 +7,21 @@ require ('function.php');
 
 is_not_logged();
 
-$userEdit = getUser();
+$user = getUser();
+
+$edit_id = $user['id'];
+$logged_id = $_SESSION['user']['id'];
+
+var_dump($edit_id);
 
 
-if ($_SESSION['user']['role'] !== 'admin' && $_SESSION['user']['id'] !== $userEdit['id']){
+if (is_admin() !== true &&  is_auth($logged_id,$edit_id) !== true){
     flesh_message('badly', 'Можно редактировать только свой профиль');
     redirect('/registerPHP/users.php');
     exit();
 }
 
 ?>
-
-
-
-
-
-
-
 
 
 <!DOCTYPE html>
@@ -94,7 +92,7 @@ if ($_SESSION['user']['role'] !== 'admin' && $_SESSION['user']['id'] !== $userEd
                                 <!-- email -->
                                 <div class="form-group">
                                     <label class="form-label" for="simpleinput">Email</label>
-                                    <input type="text" name="email" id="simpleinput" class="form-control" value="<?php echo $userEdit['email'] ?>">
+                                    <input type="text" name="email" id="simpleinput" class="form-control" value="<?php echo $user['email'] ?>">
                                 </div>
 
                                 <!-- password -->

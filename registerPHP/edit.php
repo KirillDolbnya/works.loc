@@ -6,24 +6,19 @@ require ('function.php');
 
 is_not_logged();
 
-
-
-
-
-
-
 $user = getUser();
+
+$edit_id = $user['id'];
+$logged_id = $_SESSION['user']['id'];
 
 $_SESSION['email'] = $user['email'];
 
 
-if ($_SESSION['user']['role'] !== 'admin' && $_SESSION['user']['id'] !== $user['id']){
+if (is_admin() !== true && is_auth($logged_id,$edit_id) !== true){
     flesh_message('badly', 'Можно редактировать только свой профиль');
     redirect('/registerPHP/users.php');
     exit();
 }
-
-
 
 
 ?>
@@ -77,6 +72,7 @@ if ($_SESSION['user']['role'] !== 'admin' && $_SESSION['user']['id'] !== $user['
                                 <h2>Общая информация</h2>
                             </div>
                             <div class="panel-content">
+                                <input type="hidden" value="<?php echo $user['id'] ?>">
                                 <!-- username -->
                                 <div class="form-group">
                                     <label class="form-label" for="simpleinput">Имя</label>
@@ -92,7 +88,7 @@ if ($_SESSION['user']['role'] !== 'admin' && $_SESSION['user']['id'] !== $user['
                                 <!-- tel -->
                                 <div class="form-group">
                                     <label class="form-label" for="simpleinput">Номер телефона</label>
-                                    <input type="text" name="number" id="simpleinput" class="form-control" value="8 888 8888 88">
+                                    <input type="text" name="number" id="simpleinput" class="form-control" value="<?php echo $user['number'] ?>">
                                 </div>
 
                                 <!-- address -->

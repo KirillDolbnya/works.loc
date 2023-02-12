@@ -32,7 +32,6 @@ function redirect($redirect)
 
 function add_user($email, $password)
 {
-    /*$password_hash = password_hash($password , PASSWORD_DEFAULT);*/
     $pdo=connection_bd();
     $sql = "INSERT INTO users (email , password) VALUES (:email , :password)";
     $statement = $pdo->prepare($sql);
@@ -52,24 +51,15 @@ function login($email){
     $statement->execute(['email'=>$email]);
     $user = $statement->fetch(PDO::FETCH_ASSOC);
     return $user;
-
-//    if (!empty($mail) && !empty($pass)){
-//        $mysql = 'SELECT * FROM users WHERE email=:email';
-//        $stat = $pdo->prepare($mysql);
-//        $stat->execute(['email'=>$email]);
-//        $user = $stat->fetch(PDO::FETCH_ASSOC);
-//        $_SESSION['user'] = $user;
-//        var_dump($_SESSION['user']);
-//        redirect('/registerPHP/users.php');
-//
-//        exit();
-//    }else{
-//        $_SESSION['incorrect'] = 'Неверный логин или пароль';
-//        redirect('/registerPHP/page_login.php');
-//        exit();
-//    }
 }
 
+function is_admin(){
+    if ($_SESSION['user']['role'] == 'admin'){
+        return true;
+    }else{
+        return false;
+    }
+}
 
 
 function is_not_logged(){
@@ -80,7 +70,7 @@ function is_not_logged(){
 }
 
 
-function get_users(){
+function get_all_users(){
     $pdo=connection_bd();
     $sql = "SELECT * FROM users";
     $statement = $pdo->prepare($sql);
@@ -112,21 +102,25 @@ function add_status($status,$email){
     ]);
 }
 
-function upload_file($file){
-    $result = pathinfo($file['image']['name']);
-    $filename = uniqid() . '.' . $result['extension'];
-    move_uploaded_file($file['image']['tmp_name'], 'upload/'.$filename);
-}
+//function upload_file($file){
+//    $result = pathinfo($file['image']['name']);
+//    $filename = uniqid() . '.' . $result['extension'];
+//    move_uploaded_file($file['image']['tmp_name'], 'upload/'.$filename);
+//}
 
-/*function add_file($email , $image){
+function add_file($email , $image){
+    $result = pathinfo($image['image']['name']);
+    $filename = uniqid() . '.' . $result['extension'];
+    $profileImage = move_uploaded_file($image['image']['tmp_name'], 'upload/'.$filename);
     $pdo = connection_bd();
     $sql = "UPDATE users SET image=:image WHERE email=:email";
     $statement = $pdo->prepare($sql);
     $statement->execute([
-        'image'=> $image,
+        'image'=> $filename,
         'email'=>$email,
     ]);
-}*/
+}
+
 
 function social($vk,$tg,$inst,$email){
     $pdo = connection_bd();
@@ -138,6 +132,14 @@ function social($vk,$tg,$inst,$email){
         'inst'=>$inst,
         'email'=>$email,
     ]);
+}
+
+function is_auth($logged_id, $edit_id){
+    if ($logged_id == $edit_id){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 
@@ -164,7 +166,7 @@ function edit_user_email_password($email,$password,$id){
     $statement = $pdo->prepare($sql);
     $statement->execute([
         'email'=> $email,
-        'password' => $password,
+        'password' => password_hash($password,PASSWORD_DEFAULT),
         'id'=>$id,
     ]);
 }

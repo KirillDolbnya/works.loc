@@ -8,8 +8,8 @@ require ('function.php');
 
 is_not_logged();
 
-if ($_SESSION['user']['role']!=='admin'){
-    redirect('/registerPHP/page_login.php');
+if (is_admin() !== true){
+    redirect('/registerPHP/users.php');
 }
 
 

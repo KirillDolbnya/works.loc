@@ -7,9 +7,9 @@ require ('function.php');
 
 is_not_logged();
 
-$users = get_users();
+$users = get_all_users();
 
-//var_dump($_SESSION);
+var_dump($_SESSION);
 ?>
 
 
@@ -77,7 +77,7 @@ $users = get_users();
             </div>
             <div class="row">
                 <div class="col-xl-12">
-                    <?php if ($_SESSION['user']["role"]== 'admin'){ ?>
+                    <?php if (is_admin() == true){ ?>
                         <a class="btn btn-success" href="create_user.php">
                             Добавить
                         </a>
@@ -103,13 +103,13 @@ $users = get_users();
                                 <div class="d-flex flex-row align-items-center">
                                     <span class="status status-<?php echo $value['status'] ?> mr-3">
                                         <a href="page_profile.php?id=<?php echo $value['id'] ?>">
-                                            <span class="rounded-circle profile-image d-block " style="background-image:url('<?php echo $value['image'] ?>'); background-size: cover;"></span>
+                                            <span class="rounded-circle profile-image d-block " style="background-image:url('upload/<?php echo $value['image'] ?>'); background-size: cover;"></span>
                                         </a>
                                     </span>
                                     <div class="info-card-text flex-1">
                                         <a href="javascript:void(0);" class="fs-xl text-truncate text-truncate-lg text-info" data-toggle="dropdown" aria-expanded="false">
                                             <?php echo $value['name'] ?>
-                                            <?php if($value['id'] == $_SESSION['user']['id'] ||$_SESSION['user']["role"] == 'admin'){ ?>
+                                            <?php if($value['id'] == $_SESSION['user']['id'] || is_admin() == true){ ?>
                                             <i class="fal fas fa-cog fa-fw d-inline-block ml-1 fs-md"></i>
                                             <i class="fal fa-angle-down d-inline-block ml-1 fs-md"></i>
                                         </a>
