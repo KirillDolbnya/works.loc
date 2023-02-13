@@ -1,3 +1,22 @@
+<?php
+session_start();
+
+require ('function.php');
+
+$user = getUser();
+$edit_id = $user['id'];
+$logged_id = $_SESSION['user']['id'];
+
+if (is_admin() !== true &&  is_auth($logged_id,$edit_id) !== true){
+    flesh_message('badly', 'Можно редактировать только свой профиль');
+    redirect('/registerPHP/users.php');
+    exit();
+}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,34 +53,40 @@
     <main id="js-page-content" role="main" class="page-content mt-3">
         <div class="subheader">
             <h1 class="subheader-title">
-                <i class='subheader-icon fal fa-image'></i> Загрузить аватар
+                <i class='subheader-icon fal fa-sun'></i> Установить статус
             </h1>
 
         </div>
-        <form action="">
+        <form action="edit_status.php" method="post">
             <div class="row">
                 <div class="col-xl-6">
                     <div id="panel-1" class="panel">
                         <div class="panel-container">
                             <div class="panel-hdr">
-                                <h2>Текущий аватар</h2>
+                                <h2>Установка текущего статуса</h2>
                             </div>
                             <div class="panel-content">
-                                <div class="form-group">
-                                    <img src="img/demo/authors/josh.png" alt="" class="img-responsive" width="200">
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="form-label" for="example-fileinput">Выберите аватар</label>
-                                    <input type="file" id="example-fileinput" class="form-control-file">
-                                </div>
-
-
-                                <div class="col-md-12 mt-3 d-flex flex-row-reverse">
-                                    <button class="btn btn-warning">Загрузить</button>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <input type="hidden" name="id" value="<?php echo $user['id'] ?>">
+                                        <!-- status -->
+                                        <div class="form-group">
+                                            <label class="form-label" for="example-select">Выберите статус</label>
+                                            <select class="form-control" id="example-select" name="status">
+<!--                                                <option>--><?php //echo $user['status'];?><!--</option>-->
+                                                <option value="success">Онлайн</option>
+                                                <option value="warning">Отошел</option>
+                                                <option value="danger">Не беспокоить</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mt-3 d-flex flex-row-reverse">
+                                        <button class="btn btn-warning">Set Status</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>

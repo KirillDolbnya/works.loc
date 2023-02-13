@@ -32,6 +32,7 @@ function redirect($redirect)
 
 function add_user($email, $password)
 {
+
     $pdo=connection_bd();
     $sql = "INSERT INTO users (email , password) VALUES (:email , :password)";
     $statement = $pdo->prepare($sql);
@@ -39,9 +40,9 @@ function add_user($email, $password)
         'email' => $email,
         'password' => password_hash($password,PASSWORD_DEFAULT),
     ]);
+    $id = $pdo->lastInsertId();
+    return $id;
 }
-
-
 
 
 function login($email){
@@ -79,58 +80,55 @@ function get_all_users(){
     return $users;
 }
 
-function edit_info($name,$job,$number,$address,$email){
+function edit_info($name,$job,$number,$address,$id){
     $pdo = connection_bd();
-    $sql = "UPDATE users SET name=:name,job=:job,number=:number,address=:address WHERE email=:email";
+    $sql = "UPDATE users SET name=:name,job=:job,number=:number,address=:address WHERE id=:id";
     $statement = $pdo->prepare($sql);
     $statement->execute([
         'name'=> $name,
         'job' => $job,
         'number' => $number,
         'address' => $address,
-        'email'=>$email,
+        'id'=>$id,
     ]);
 }
 
-function add_status($status,$email){
+function add_status($status,$id){
     $pdo = connection_bd();
-    $sql = "UPDATE users SET status=:status WHERE email=:email";
+    $sql = "UPDATE users SET status=:status WHERE id=:id";
     $statement = $pdo->prepare($sql);
     $statement->execute([
         'status'=> $status,
-        'email'=>$email,
+        'id'=>$id,
     ]);
 }
 
-//function upload_file($file){
-//    $result = pathinfo($file['image']['name']);
-//    $filename = uniqid() . '.' . $result['extension'];
-//    move_uploaded_file($file['image']['tmp_name'], 'upload/'.$filename);
-//}
 
-function add_file($email , $image){
+function add_file($image,$id){
     $result = pathinfo($image['image']['name']);
     $filename = uniqid() . '.' . $result['extension'];
     $profileImage = move_uploaded_file($image['image']['tmp_name'], 'upload/'.$filename);
+    var_dump($profileImage);
     $pdo = connection_bd();
-    $sql = "UPDATE users SET image=:image WHERE email=:email";
+    $sql = "UPDATE users SET image=:image WHERE id=:id";
     $statement = $pdo->prepare($sql);
     $statement->execute([
         'image'=> $filename,
-        'email'=>$email,
+        'id'=>$id,
     ]);
 }
 
 
-function social($vk,$tg,$inst,$email){
+
+function social($vk,$tg,$inst,$id){
     $pdo = connection_bd();
-    $sql = "UPDATE users SET vk=:vk,tg=:tg,inst=:inst WHERE email=:email";
+    $sql = "UPDATE users SET vk=:vk,tg=:tg,inst=:inst WHERE id=:id";
     $statement = $pdo->prepare($sql);
     $statement->execute([
         'vk'=>$vk,
         'tg'=>$tg,
         'inst'=>$inst,
-        'email'=>$email,
+        'id'=>$id,
     ]);
 }
 
@@ -152,13 +150,6 @@ function getUser(){
     return $user;
 }
 
-//function thisUser(){
-//
-//}
-
-
-
-
 
 function edit_user_email_password($email,$password,$id){
     $pdo = connection_bd();
@@ -169,6 +160,10 @@ function edit_user_email_password($email,$password,$id){
         'password' => password_hash($password,PASSWORD_DEFAULT),
         'id'=>$id,
     ]);
+}
+
+function delete_user(){
+
 }
 
 

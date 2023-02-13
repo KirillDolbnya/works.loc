@@ -107,7 +107,7 @@ if (is_admin() !== true &&  is_auth($logged_id,$edit_id) !== true){
                                     <input type="password" name="password-confirm" id="simpleinput" class="form-control">
                                 </div>
 
-                                <input type="hidden" name="id" value="<?php echo $userEdit["id"];?>">
+                                <input type="hidden" name="id" value="<?php echo $user["id"];?>">
 
                                 <div class="col-md-12 mt-3 d-flex flex-row-reverse">
                                     <button class="btn btn-warning">Изменить</button>

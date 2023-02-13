@@ -11,7 +11,7 @@ $user = getUser();
 $edit_id = $user['id'];
 $logged_id = $_SESSION['user']['id'];
 
-$_SESSION['email'] = $user['email'];
+//$_SESSION['email'] = $user['email'];
 
 
 if (is_admin() !== true && is_auth($logged_id,$edit_id) !== true){
@@ -72,7 +72,7 @@ if (is_admin() !== true && is_auth($logged_id,$edit_id) !== true){
                                 <h2>Общая информация</h2>
                             </div>
                             <div class="panel-content">
-                                <input type="hidden" value="<?php echo $user['id'] ?>">
+                                <input type="hidden" name="id" value="<?php echo $user['id'] ?>">
                                 <!-- username -->
                                 <div class="form-group">
                                     <label class="form-label" for="simpleinput">Имя</label>

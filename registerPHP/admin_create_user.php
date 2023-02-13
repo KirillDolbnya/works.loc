@@ -21,6 +21,7 @@ $inst = $_POST['inst'];
 
 $image = $_FILES;
 //var_dump(upload_file($file));
+//var_dump($_FILES);
 
 
 
@@ -33,13 +34,14 @@ if (!empty($userMail)) {
     flesh_message('bad','Введите почту и пароль');
     redirect('/registerPHP/create_user.php');
 }else{
-    add_user($email, $password);
-    edit_info($name,$job,$number,$address,$email);
-    add_status($status,$email);
-    social($vk,$tg,$inst,$email);
-    add_file($email,$image);
+    $id = add_user($email, $password);
+    edit_info($name,$job,$number,$address,$id);
+    add_status($status,$id);
+    social($vk,$tg,$inst,$id);
+    add_file($image,$id);
     flesh_message('good','Пользователь успешно добавлен');
     redirect('/registerPHP/users.php');
 }
+
 
 
