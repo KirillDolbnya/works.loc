@@ -4,14 +4,15 @@ session_start();
 require ('function.php');
 
 $user = getUser();
-$edit_id = $user['id'];
-$logged_id = $_SESSION['user']['id'];
+$profileID = $_GET["id"];
 
-if (is_admin() !== true &&  is_auth($logged_id,$edit_id) !== true){
+
+if (!is_admin() && is_auth() !== $profileID){
     flesh_message('badly', 'Можно редактировать только свой профиль');
     redirect('/registerPHP/users.php');
     exit();
 }
+
 ?>
 
 
@@ -57,7 +58,7 @@ if (is_admin() !== true &&  is_auth($logged_id,$edit_id) !== true){
             </h1>
 
         </div>
-        <form action="edit_status.php" method="post">
+        <form action="edit_status.php?id=<?php echo $profileID ?>" method="post">
             <div class="row">
                 <div class="col-xl-6">
                     <div id="panel-1" class="panel">

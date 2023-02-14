@@ -7,13 +7,13 @@ is_not_logged();
 
 $user = getUser();
 
-$edit_id = $user['id'];
-$logged_id = $_SESSION['user']['id'];
+$profileID = $_GET["id"];
+
 
 //var_dump($edit_id);
 
 
-if (is_admin() !== true &&  is_auth($logged_id,$edit_id) !== true){
+if (!is_admin() && is_auth() !== $profileID){
     flesh_message('badly', 'Можно редактировать только свой профиль');
     redirect('/registerPHP/users.php');
     exit();
@@ -62,7 +62,7 @@ if (is_admin() !== true &&  is_auth($logged_id,$edit_id) !== true){
             </h1>
 
         </div>
-        <form action="edit_madia.php" method="post" enctype="multipart/form-data">
+        <form action="edit_madia.php?id=<?php echo $profileID ?>" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-xl-6">
                     <div id="panel-1" class="panel">

@@ -132,12 +132,9 @@ function social($vk,$tg,$inst,$id){
     ]);
 }
 
-function is_auth($logged_id, $edit_id){
-    if ($logged_id == $edit_id){
-        return true;
-    }else{
-        return false;
-    }
+function is_auth(){
+    $userID =  $_SESSION['user']['id'];
+    return $userID;
 }
 
 

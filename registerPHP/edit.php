@@ -8,13 +8,10 @@ is_not_logged();
 
 $user = getUser();
 
-$edit_id = $user['id'];
-$logged_id = $_SESSION['user']['id'];
-
-//$_SESSION['email'] = $user['email'];
+$profileID = $_GET["id"];
 
 
-if (is_admin() !== true && is_auth($logged_id,$edit_id) !== true){
+if (!is_admin() && is_auth() !== $profileID){
     flesh_message('badly', 'Можно редактировать только свой профиль');
     redirect('/registerPHP/users.php');
     exit();
@@ -63,7 +60,7 @@ if (is_admin() !== true && is_auth($logged_id,$edit_id) !== true){
             </h1>
 
         </div>
-        <form action="edit_user.php" method="post">
+        <form action="edit_user.php?id=<?php echo $profileID ?>" method="post">
             <div class="row">
                 <div class="col-xl-6">
                     <div id="panel-1" class="panel">
