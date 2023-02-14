@@ -163,6 +163,10 @@ function edit_user_email_password($email,$password,$id){
 }
 
 function delete_user(){
+    $pdo = connection_bd();
+    $sql = "DELETE FROM users WHERE id=:id";
+    $statement = $pdo->prepare($sql);
+    $statement->execute($_GET);
 
 }
 

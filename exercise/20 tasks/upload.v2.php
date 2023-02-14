@@ -46,4 +46,4 @@ $statement->execute([
 $id = $pdo->lastInsertId();
 $_SESSION["galleryID"] = $id;
 
-
+header('Location: /20tasks/task_19w2.php');

@@ -103,9 +103,7 @@ var_dump($_SESSION);
                                         <div class="col-md-3 image">
                                             <img src="<?php echo $imgUrl ?>" alt="<?php echo $imgTitle; ?>">
                                         </div>
-                                        <?php } }
-                                        //!empty($_SESSION["galleryID"])
-                                        header('Location: /20 tasks/task_19w2.php'); ?>
+                                        <?php } } //!empty($_SESSION["galleryID"])?>
                                     </div>
                                 </div>
                             </div>
