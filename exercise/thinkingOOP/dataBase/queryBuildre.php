@@ -8,12 +8,10 @@ class QueryBuildre {
         $this->pdo=$pdo;
     }
 
-    function getAll(){
-        $sql = 'SELECT * FROM posts';
+    public function getAll ($table){
+        $sql = "SELECT * FROM {$table}";
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
-        $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-        return $posts;
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
-};
+}
