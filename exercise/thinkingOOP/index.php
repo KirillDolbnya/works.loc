@@ -1,4 +1,4 @@
-<!doctype html>
+<!Doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -47,7 +47,18 @@ $posts = [
         "id"    => 3,
         "title" => " Lorem ipsum dolor 3",
     ],
-]
+];
+
+
+$pdo = new PDO ('mysql:host=localhost;dbname=app3','root','');
+$sql = 'SELECT * FROM posts';
+$statement = $pdo->prepare($sql);
+$statement->execute();
+$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+echo '<pre>';
+var_dump($posts);
+echo '</pre>';
 ?>
 
 <div class="container mt-3">
@@ -64,6 +75,7 @@ $posts = [
                     </tr>
                     </thead>
                     <tbody>
+
 
 
                     <?php foreach ($posts as $index => $post) { ?>
