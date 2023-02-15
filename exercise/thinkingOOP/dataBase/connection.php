@@ -1,8 +1,8 @@
 <?php
 
 class Connection{
-    public function make(){
-        $pdo = new PDO ('mysql:host=localhost;dbname=app3','root','');
+    public static function make($config){
+        $pdo = new PDO ("{$config['host']};dbname={$config['dbname']}",$config['user'],$config['password']);
         return $pdo;
     }
 }
