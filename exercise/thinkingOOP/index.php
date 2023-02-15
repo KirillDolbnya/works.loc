@@ -56,6 +56,7 @@ $statement = $pdo->prepare($sql);
 $statement->execute();
 $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+
 echo '<pre>';
 var_dump($posts);
 echo '</pre>';
