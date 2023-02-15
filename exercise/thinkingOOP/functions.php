@@ -6,8 +6,7 @@
     exit();
  }
 
-function getAllPosts(){
-    $pdo = new PDO ('mysql:host=localhost;dbname=app3','root','');
+function getAllPosts($pdo){
     $sql = 'SELECT * FROM posts';
     $statement = $pdo->prepare($sql);
     $statement->execute();
