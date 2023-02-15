@@ -50,34 +50,38 @@ $posts = [
 ]
 ?>
 
-<div class="container">
+<div class="container mt-3">
     <div class="row">
-        <table class="table mt-3">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Title</th>
-                <th scope="col">action</th>
-            </tr>
-            </thead>
-            <tbody>
+        <div class="col-12">
+            <a class="btn btn-success" href="#">Добавить</a>
+            <div class="row">
+                <table class="table mt-3">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
 
 
-            <?php foreach ($posts as $index => $post) { ?>
-                <tr>
-                    <th scope="row"><?php echo $post["id"]; ?></th>
-                    <td><?php echo $post["title"]; ?></td>
-                    <td>
-                        <a href="edit.php?id=" class="btn btn-warning">Изменить</a>
-                        <a href="delete.php?id=" class="btn btn-danger">Удалить</a>
-                    </td>
-                </tr>
-            <?php } ?>
+                    <?php foreach ($posts as $index => $post) { ?>
+                        <tr>
+                            <th scope="row"><?php echo $post["id"]; ?></th>
+                            <td><?php echo $post["title"]; ?></td>
+                            <td>
+                                <a href="edit.php?id=" class="btn btn-warning">Изменить</a>
+                                <a href="delete.php?id=" class="btn btn-danger">Удалить</a>
+                            </td>
+                        </tr>
+                    <?php } ?>
 
 
-
-            </tbody>
-        </table>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
 
