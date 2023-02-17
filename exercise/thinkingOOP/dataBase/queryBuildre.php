@@ -34,4 +34,22 @@ class QueryBuildre {
         $post = $statement->fetch(PDO::FETCH_ASSOC);
         return $post;
     }
+
+    public function update($table,$data,$id){
+        $keys = array_keys($data);
+        $string = '';
+
+        foreach ($keys as $key){
+            $string .= $key.'=:'.$key.',';
+        }
+
+        $keys = rtrim($string,',');
+        $data['id']=$id;
+
+
+        $sql = "UPDATE {$table} SET {$keys} WHERE id=:id";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute($data);
+        var_dump($data);
+    }
 }
