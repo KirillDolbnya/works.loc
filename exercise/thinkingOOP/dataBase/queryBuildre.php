@@ -14,4 +14,10 @@ class QueryBuildre {
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function create(){
+        $sql = "INSERT INTO posts (title) VALUES ('bruh')";
+        $statement=$this->pdo->query($sql);
+        var_dump($statement);
+    }
 }
