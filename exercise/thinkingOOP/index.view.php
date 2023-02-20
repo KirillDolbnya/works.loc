@@ -75,7 +75,7 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
                             <th scope="row"><?php echo $post["id"]; ?></th>
                             <td>
                                 <a href="edit.php?id=<?php echo $post["id"]; ?>" class="btn btn-warning">Изменить</a>
-                                <a href="delete.php?id=" class="btn btn-danger">Удалить</a>
+                                <a href="delete.php?id=<?php echo $post["id"]; ?>" class="btn btn-danger">Удалить</a>
                             </td>
                         </tr>
                     <?php } ?>

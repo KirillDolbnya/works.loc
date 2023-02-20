@@ -52,4 +52,12 @@ class QueryBuildre {
         $statement->execute($data);
         var_dump($data);
     }
+
+    public function delete($table,$id){
+        $sql = "DELETE FROM {$table} WHERE id=:id";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute([
+            'id'=>$id
+        ]);
+    }
 }
