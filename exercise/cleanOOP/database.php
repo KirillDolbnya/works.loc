@@ -9,7 +9,7 @@ class Database
     private function __construct()
     {
         try {
-            $this->pdo = new PDO('mysql:host=localhost;dbname=test', 'root', '');
+            $this->pdo = new PDO('mysql:host=localhost;dbname=marlinOOP', 'root', '');
         } catch (PDOException $exception) {
             die($exception->getMessage());
         }
@@ -58,5 +58,47 @@ class Database
     public function count()
     {
         return $this->count;
+    }
+    public function get($table,$where = []){
+        return $this->action('SELECT *',$table,$where);
+    }
+
+
+    public function delete($table,$where = []){
+        return $this->action('DELETE',$table,$where);
+    }
+
+    public function action($action,$table,$where=[]){
+        if (count($where) === 3){
+
+            $operators = ['=','<','>','>=','<='];
+            $field = $where[0];
+            $operator = $where[1];
+            $value = $where[2];
+
+            if (in_array($operator,$operators)){
+                $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
+                if (!$this->query($sql, [$value])->error()){
+                    return $this;
+                }
+            }
+
+        }
+        return false;
+    }
+
+    public function insert($table,$fields = []){
+        $values = '';
+        foreach ($fields as $field){
+            $values .= '? ,';
+        }
+
+        $values = rtrim($values,',');
+        $keys = array_keys($fields);
+
+        $sql = "INSERT INTO {$table} (". implode(',', $keys) .")  VALUES (". $values .")";
+//        var_dump($sql,$fields);
+
+        $this->query($sql , $fields);
     }
 }
