@@ -3,13 +3,14 @@
 include_once ('database.php');
 
 //$users = Database::Instance()->query("SELECT * FROM users WHERE username IN (?,?)",['Tagir','Kirill']);
-//$users = Database::Instance()->get('users',['username','=','Tagir']);
+$users = Database::Instance()->get('users',['username','=','Tagir']);
 //var_dump($users->count());die();
 
-Database::Instance()->insert('users',[
-    'username'=>'Marlin',
-    'password'=>'qqq',
-]);
+//$id = 3;
+//$users = Database::Instance()->update('users',$id,[
+//    'username' => 'Marlin1',
+//    'password'=> '123',
+//]);
 
 //if ($users->error()) {
 //    echo 'Ошибка';
@@ -18,3 +19,6 @@ Database::Instance()->insert('users',[
 //        echo $user['id'] . " " . $user['username'] . "<br>";
 //    }
 //}
+
+//echo $users->results()[0];
+//echo $users->first();

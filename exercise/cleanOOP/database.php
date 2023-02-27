@@ -70,7 +70,6 @@ class Database
 
     public function action($action,$table,$where=[]){
         if (count($where) === 3){
-
             $operators = ['=','<','>','>=','<='];
             $field = $where[0];
             $operator = $where[1];
@@ -95,10 +94,25 @@ class Database
 
         $values = rtrim($values,',');
         $keys = array_keys($fields);
-
         $sql = "INSERT INTO {$table} (". implode(',', $keys) .")  VALUES (". $values .")";
-//        var_dump($sql,$fields);
-
         $this->query($sql , $fields);
+    }
+
+    public function update($table,$id,$fields = []){
+        $set = '';
+        foreach ($fields as $key => $field){
+            $set .= "{$key} = ?,";
+        }
+        $set = rtrim($set,',');
+        $sql = "UPDATE {$table}  SET  {$set} WHERE id={$id}";
+
+        if (!$this->query($sql,$fields)->error()){
+            return true;
+        }
+        return false;
+    }
+
+    public function first(){
+        return $this->results()[0];
     }
 }
