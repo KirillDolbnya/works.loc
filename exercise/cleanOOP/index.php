@@ -20,5 +20,5 @@ $users = Database::Instance()->get('users',['username','=','Tagir']);
 //    }
 //}
 
-//echo $users->results()[0];
-//echo $users->first();
+//echo $users->result()[0]['password'];
+//echo $users->first()['username'];
