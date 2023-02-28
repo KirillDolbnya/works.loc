@@ -1,6 +1,6 @@
 <?php
 
-include_once ('config.php');
+include_once('config.php');
 
 class Database
 {
@@ -11,7 +11,7 @@ class Database
     private function __construct()
     {
         try {
-            $this->pdo = new PDO('mysql:host='.Config::get('mysql.host') .';dbname='. Config::get('mysql.dbname'), Config::get('mysql.username'), Config::get('mysql.password'));
+            $this->pdo = new PDO('mysql:host=' . Config::get('mysql.host') . ';dbname=' . Config::get('mysql.dbname'), Config::get('mysql.username'), Config::get('mysql.password'));
         } catch (PDOException $exception) {
             die($exception->getMessage());
         }
@@ -25,12 +25,12 @@ class Database
         return self::$instance;
     }
 
-    public function query($sql,$params = [])
+    public function query($sql, $params = [])
     {
 
         $this->error = false;
         $this->query = $this->pdo->prepare($sql);
-        if (count($params)){
+        if (count($params)) {
             $i = 1;
             foreach ($params as $param) {
                 $this->query->bindValue($i, $param);
@@ -61,25 +61,29 @@ class Database
     {
         return $this->count;
     }
-    public function get($table,$where = []){
-        return $this->action('SELECT *',$table,$where);
+
+    public function get($table, $where = [])
+    {
+        return $this->action('SELECT *', $table, $where);
     }
 
 
-    public function delete($table,$where = []){
-        return $this->action('DELETE',$table,$where);
+    public function delete($table, $where = [])
+    {
+        return $this->action('DELETE', $table, $where);
     }
 
-    public function action($action,$table,$where=[]){
-        if (count($where) === 3){
-            $operators = ['=','<','>','>=','<='];
+    public function action($action, $table, $where = [])
+    {
+        if (count($where) === 3) {
+            $operators = ['=', '<', '>', '>=', '<='];
             $field = $where[0];
             $operator = $where[1];
             $value = $where[2];
 
-            if (in_array($operator,$operators)){
+            if (in_array($operator, $operators)) {
                 $sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
-                if (!$this->query($sql, [$value])->error()){
+                if (!$this->query($sql, [$value])->error()) {
                     return $this;
                 }
             }
@@ -88,33 +92,36 @@ class Database
         return false;
     }
 
-    public function insert($table,$fields = []){
+    public function insert($table, $fields = [])
+    {
         $values = '';
-        foreach ($fields as $field){
+        foreach ($fields as $field) {
             $values .= '? ,';
         }
 
-        $values = rtrim($values,',');
+        $values = rtrim($values, ',');
         $keys = array_keys($fields);
-        $sql = "INSERT INTO {$table} (". implode(',', $keys) .")  VALUES (". $values .")";
-        $this->query($sql , $fields);
+        $sql = "INSERT INTO {$table} (" . implode(',', $keys) . ")  VALUES (" . $values . ")";
+        $this->query($sql, $fields);
     }
 
-    public function update($table,$id,$fields = []){
+    public function update($table, $id, $fields = [])
+    {
         $set = '';
-        foreach ($fields as $key => $field){
+        foreach ($fields as $key => $field) {
             $set .= "{$key} = ?,";
         }
-        $set = rtrim($set,',');
+        $set = rtrim($set, ',');
         $sql = "UPDATE {$table}  SET  {$set} WHERE id={$id}";
 
-        if (!$this->query($sql,$fields)->error()){
+        if (!$this->query($sql, $fields)->error()) {
             return true;
         }
         return false;
     }
 
-    public function first(){
+    public function first()
+    {
         return $this->result()[0];
     }
 }

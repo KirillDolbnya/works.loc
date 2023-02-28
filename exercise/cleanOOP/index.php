@@ -1,9 +1,12 @@
 <?php
 
-include_once ('config.php');
-include_once ('database.php');
-include_once ('input.php');
-include_once ('validate.php');
+include_once('config.php');
+include_once('database.php');
+include_once('input.php');
+include_once('validate.php');
+include_once('session.php');
+include_once('token.php');
+
 
 $GLOBALS['config'] = [
     'mysql' => [
@@ -14,37 +17,40 @@ $GLOBALS['config'] = [
         'something' => [
             'no' => [
                 'foo' => [
-                    'bar' => 'baz'
-                ]
-            ]
-        ]
+                    'bar' => 'baz',
+                ],
+            ],
+        ],
+    ],
+    'session' => [
+        'token_name' => 'token',
     ]
 ];
 
-if (Input::exists()){
+if (Input::exists()) {
     $validate = new Validate();
 
-    $validation = $validate->check($_POST,[
-       'username' =>[
-               'required' => true,
-                'min' => 2,
-                'max' => 15,
-                'unique' => 'users',
-       ],
-        'password' =>[
+    $validation = $validate->check($_POST, [
+        'username' => [
+            'required' => true,
+            'min' => 2,
+            'max' => 15,
+            'unique' => 'users',
+        ],
+        'password' => [
             'required' => true,
             'min' => 3,
         ],
-        'repeat_password' =>[
+        'repeat_password' => [
             'required' => true,
             'mathes' => 'password',
         ]
     ]);
 
-    if ($validation->passed()){
+    if ($validation->passed()) {
         echo 'passed';
-    }else{
-        foreach ($validation->errors() as $error){
+    } else {
+        foreach ($validation->errors() as $error) {
             echo $error . '<br>';
         }
     }
@@ -87,6 +93,7 @@ if (Input::exists()){
         <label for="repeat_password">repeat password</label><br>
         <input type="text" name="repeat_password">
     </div>
+    <input type="hidden" name="token" value="<?php ?>">
     <div style="margin-top: 10px">
         <button type="submit">register</button>
     </div>

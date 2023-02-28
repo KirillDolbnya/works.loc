@@ -2,14 +2,14 @@
 
 class Config
 {
-    public static function get ($path = null)
+    public static function get($path = null)
     {
-        if ($path){
+        if ($path) {
             $config = $GLOBALS['config'];
-            $path = explode('.',$path);
+            $path = explode('.', $path);
 
-            foreach ($path as $item){
-                if (isset($config[$item])){
+            foreach ($path as $item) {
+                if (isset($config[$item])) {
                     $config = $config[$item];
                 }
             }

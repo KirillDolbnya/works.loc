@@ -1,22 +1,26 @@
 <?php
-class Input{
-    public static function exists ($type = 'post'){
-        switch ($type){
+
+class Input
+{
+    public static function exists($type = 'post')
+    {
+        switch ($type) {
             case 'post':
-                return (!empty($_POST)) ? true: false;
+                return (!empty($_POST)) ? true : false;
 
             case 'get':
-                return (!empty($_GET)) ? true:false;
+                return (!empty($_GET)) ? true : false;
             default:
                 return false;
-            break;
+                break;
         }
     }
 
-    public static function get($item){
-        if (isset($_POST[$item])){
+    public static function get($item)
+    {
+        if (isset($_POST[$item])) {
             return $_POST[$item];
-        } else if ($_GET[$item]){
+        } else if ($_GET[$item]) {
             return $_GET[$item];
         }
 
