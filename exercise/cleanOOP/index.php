@@ -3,6 +3,7 @@
 include_once ('config.php');
 include_once ('database.php');
 include_once ('input.php');
+include_once ('validate.php');
 
 $GLOBALS['config'] = [
     'mysql' => [
@@ -19,6 +20,35 @@ $GLOBALS['config'] = [
         ]
     ]
 ];
+
+if (Input::exists()){
+    $validate = new Validate();
+
+    $validation = $validate->check($_POST,[
+       'username' =>[
+               'required' => true,
+                'min' => 2,
+                'max' => 15,
+                'unique' => 'users',
+       ],
+        'password' =>[
+            'required' => true,
+            'min' => 3,
+        ],
+        'repeat_password' =>[
+            'required' => true,
+            'mathes' => 'password',
+        ]
+    ]);
+
+    if ($validation->passed()){
+        echo 'passed';
+    }else{
+        foreach ($validation->errors() as $error){
+            echo $error . '<br>';
+        }
+    }
+}
 
 //$users = Database::Instance()->query("SELECT * FROM users WHERE username IN (?,?)",['Tagir','Kirill']);
 //$users = Database::Instance()->get('users',['username','=','Tagir']);
