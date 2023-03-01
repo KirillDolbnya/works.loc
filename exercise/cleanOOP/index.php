@@ -7,6 +7,8 @@ include_once('input.php');
 include_once('validate.php');
 include_once('session.php');
 include_once('token.php');
+include_once ('user.php');
+include_once ('redirect.php');
 
 
 $GLOBALS['config'] = [
@@ -50,8 +52,13 @@ if (Input::exists()) {
         ]);
 
         if ($validation->passed()) {
-            Session::flash('success','register success');
-            header('Location: /exercise/cleanOOP/test.php');
+            $user = new User();
+
+            $user->create([
+                    'username' => Input::get('username'),
+                    'password' => password_hash(Input::get('password') , PASSWORD_DEFAULT),
+            ]);
+            Session::flash('success', 'register success');
         } else {
             foreach ($validation->errors() as $error) {
                 echo $error . '<br>';
@@ -85,6 +92,9 @@ if (Input::exists()) {
 
 
 <form action="" method="post">
+
+    <?php echo Session::flash('success'); ?>
+
     <div>
         <label for="username">username</label><br>
         <input type="text" name="username" value="<?php echo Input::get('username') ?>">
