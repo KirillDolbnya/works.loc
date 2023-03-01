@@ -59,6 +59,8 @@ if (Input::exists()) {
                     'password' => password_hash(Input::get('password') , PASSWORD_DEFAULT),
             ]);
             Session::flash('success', 'register success');
+            Redirect::to('test.php');
+            //Redirect::to(404);
         } else {
             foreach ($validation->errors() as $error) {
                 echo $error . '<br>';
