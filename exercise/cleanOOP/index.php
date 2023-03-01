@@ -60,7 +60,7 @@ if (Input::exists()) {
             ]);
             Session::flash('success', 'register success');
             Redirect::to('test.php');
-            //Redirect::to(404);
+            Redirect::to(404);
         } else {
             foreach ($validation->errors() as $error) {
                 echo $error . '<br>';
@@ -95,7 +95,7 @@ if (Input::exists()) {
 
 <form action="" method="post">
 
-    <?php echo Session::flash('success'); ?>
+    <?php //echo Session::flash('success'); ?>
 
     <div>
         <label for="username">username</label><br>
