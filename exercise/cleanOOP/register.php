@@ -39,7 +39,7 @@ if (Input::exists()) {
                 'email' => Input::get('email')
             ]);
             Session::flash('success', 'register success');
-//            Redirect::to('test.php');
+            Redirect::to('login.php');
 //            Redirect::to(404);
         } else {
             foreach ($validation->errors() as $error) {

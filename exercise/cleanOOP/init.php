@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include_once ('class/config.php');
 include_once ('class/database.php');
@@ -25,5 +26,6 @@ $GLOBALS['config'] = [
     ],
     'session' => [
         'token_name' => 'token',
+        'user_session' => 'user',
     ]
 ];

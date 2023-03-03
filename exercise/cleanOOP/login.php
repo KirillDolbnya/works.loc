@@ -25,6 +25,7 @@ if (Input::exists()) {
 
             if ($login){
                 echo 'login success';
+                Redirect::to('index.php');
             }else{
                 echo 'login failed';
             }
