@@ -4,35 +4,57 @@ session_start();
 require_once ('init.php');
 
 
+if (Input::exists()) {
+    if (Token::check(Input::get('token'))) {
+        $validate = new Validate();
 
+        $validation = $validate->check($_POST, [
+            'username' => [
+                'required' => true,
+                'min' => 2,
+                'max' => 15,
+                'unique' => 'users',
+            ],
+            'email' => [
+                'required' => true,
+                'email' => true,
+                'unique' => 'users',
+            ],
+            'password' => [
+                'required' => true,
+                'min' => 3,
+            ],
+            'repeat_password' => [
+                'required' => true,
+                'mathes' => 'password',
+            ]
+        ]);
 
-//$users = Database::Instance()->query("SELECT * FROM users WHERE username IN (?,?)",['Tagir','Kirill']);
-//$users = Database::Instance()->get('users',['username','=','Tagir']);
-//var_dump($users->count());die();
+        if ($validation->passed()) {
+            $user = new User();
 
-//$id = 3;
-//$users = Database::Instance()->update('users',$id,[
-//    'username' => 'Marlin1',
-//    'password'=> '123',
-//]);
-
-//if ($users->error()) {
-//    echo 'Ошибка';
-//}else{
-//    foreach ($users->result() as $user) {
-//        echo $user['id'] . " " . $user['username'] . "<br>";
-//    }
-//}
-
-//echo $users->result()[0]['username'];
-//echo $users->first();
+            $user->create([
+                'username' => Input::get('username'),
+                'password' => password_hash(Input::get('password') , PASSWORD_DEFAULT),
+                'email' => Input::get('email')
+            ]);
+            Session::flash('success', 'register success');
+//            Redirect::to('test.php');
+//            Redirect::to(404);
+        } else {
+            foreach ($validation->errors() as $error) {
+                echo $error . '<br>';
+            }
+        }
+    }
+}
 
 ?>
 
 
 <form action="" method="post">
 
-    <?php //echo Session::flash('success'); ?>
+    <?php echo Session::flash('success'); ?>
 
     <div>
         <label for="username">username</label><br>
