@@ -1,14 +1,14 @@
 <?php
 session_start();
 
-include_once ('class/config.php');
-include_once ('class/database.php');
-include_once ('class/input.php');
-include_once ('class/validate.php');
-include_once ('class/session.php');
-include_once ('class/token.php');
-include_once ('class/user.php');
-include_once ('class/redirect.php');
+include_once ('class/Config.php');
+include_once ('class/Database.php');
+include_once ('class/Input.php');
+include_once ('class/Validate.php');
+include_once ('class/Session.php');
+include_once ('class/Token.php');
+include_once ('class/User.php');
+include_once ('class/Redirect.php');
 
 $GLOBALS['config'] = [
     'mysql' => [

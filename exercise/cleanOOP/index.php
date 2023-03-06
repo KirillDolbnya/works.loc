@@ -8,8 +8,8 @@ $user = new User;
 //$anotherUser = new User(20);
 //var_dump($user->isLoggedIn());
 if ($user->isLoggedIn()){
-    echo "Привет,  <a href='#'>{$user->data()['username']}</a>  ,вы авторизоват";
-    echo "<br><a href='logaut.php'>Выйти</a>";
+    echo "Hi ,  <a href='#'>{$user->data()['username']}</a>";
+    echo "<br><a href='logout.php'>Выйти</a>";
 }else{
     echo "<a href='login.php'>Войти  </a> или <a href='register.php'>  Зарегистрироваться</a>";
 }

@@ -2,7 +2,7 @@
 
 class Validate
 {
-    private $passsed = false, $errors = [], $db = null;
+    private $passed = false, $errors = [], $db = null;
 
     public function __construct()
     {
@@ -24,6 +24,7 @@ class Validate
                                 $this->addError("{$item} must be minimum of {$rule_value} characters");
                             }
                             break;
+
 
                         case 'max':
                             if (strlen($value) > $rule_value) {
@@ -72,6 +73,6 @@ class Validate
 
     public function passed()
     {
-        return $this->passsed;
+        return $this->passed;
     }
 }

@@ -2,6 +2,8 @@
 
 class User
 {
+
+
     private $db, $data,$session_name,$isLoggedIn;
 
     public function __construct($user = null){
@@ -61,5 +63,9 @@ class User
 
     public function isLoggedIn(){
         return $this->isLoggedIn;
+    }
+
+    public function logout(){
+        return Session::delete($this->session_name);
     }
 }
