@@ -55,7 +55,7 @@ class Validate
             }
         }
         if (empty($this->errors)) {
-            $this->passsed = true;
+            $this->passed = true;
         }
 
         return $this;
