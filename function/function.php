@@ -10,6 +10,7 @@
     <p>
     <?php
         function calc($a,$b,$c){
+
             $dis = ($b*$b)-(4*$a*$c);
                 $result = 'Дискриминант равен: '.$dis.'<br>';
             if ($dis > 0) {
