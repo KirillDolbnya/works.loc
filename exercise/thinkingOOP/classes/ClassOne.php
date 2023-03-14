@@ -1,6 +1,5 @@
 <?php
 
-
 class ClassOne
 {
     function __construct()

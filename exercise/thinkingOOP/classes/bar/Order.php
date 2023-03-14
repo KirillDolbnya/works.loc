@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Bar\OrderClass;
 class Order
 {
