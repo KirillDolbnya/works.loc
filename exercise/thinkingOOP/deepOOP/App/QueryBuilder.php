@@ -26,4 +26,14 @@ class QueryBuilder
         return $result;
 
     }
+
+    public function insert($data,$table)
+    {
+            $insert = $this->queryFactory->newInsert();
+            $insert
+                ->into($table)
+                ->cols($data);
+            $sth = $this->pdo->prepare($insert->getStatement());
+            $sth->execute($insert->getBindValues());
+    }
 }

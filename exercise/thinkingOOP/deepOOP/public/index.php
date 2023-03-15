@@ -39,7 +39,10 @@ $db = new QueryBuilder();
 
 $result = $db->getAll('posts');
 
-var_dump($result);
+//var_dump($result);
+$db->insert([
+    'title' => 'test one',
+],'posts');
 
 
 //$routes = [
