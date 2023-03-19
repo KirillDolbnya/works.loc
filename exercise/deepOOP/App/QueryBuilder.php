@@ -51,4 +51,17 @@ class QueryBuilder
         $sth = $this->pdo->prepare($update->getStatement());
         $sth->execute($update->getBindValues());
     }
+
+    public function delete($id,$table){
+        $delete = $this->queryFactory->newDelete();
+
+        $delete
+            ->from($table)                   // FROM this table
+            ->where('id = :id')           // AND WHERE these conditions
+            ->bindValue('id', $id);  // bind one value to a placeholder
+
+        $sth = $this->pdo->prepare($delete->getStatement());
+        $sth->execute($delete->getBindValues());
+    }
+
 }
