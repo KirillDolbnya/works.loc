@@ -36,4 +36,19 @@ class QueryBuilder
             $sth = $this->pdo->prepare($insert->getStatement());
             $sth->execute($insert->getBindValues());
     }
+
+    public function update($data,$id,$table){
+        $update = $this->queryFactory->newUpdate();
+
+        $update
+            ->table($table)
+            ->cols($data)
+            ->where('id = :id')
+            ->bindValue('id', $id);
+
+//        var_dump($update->getStatement());die();
+
+        $sth = $this->pdo->prepare($update->getStatement());
+        $sth->execute($update->getBindValues());
+    }
 }
