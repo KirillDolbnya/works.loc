@@ -47,7 +47,7 @@ echo $templates->render('homepage',['name'=>'Kirill']);
 //d($test);
 
 flash()->message('Hot!');
-echo '<p>'. flash()->error(['Invalid email!', 'Invalid username!']) .'</p>';
+flash()->error(['Invalid email!', 'Invalid username!']);
 ?>
 </body>
 </html>
