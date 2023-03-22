@@ -15,7 +15,7 @@ if( !session_id() ) {
 
 require_once "../vendor/autoload.php";
 
-use function Tamtamchik\SimpleFlash\flash;
+//use function Tamtamchik\SimpleFlash\flash;
 
 //use App\QueryBuilder;
 //$db = new QueryBuilder();
@@ -35,18 +35,19 @@ use function Tamtamchik\SimpleFlash\flash;
 //
 //
 // Create new Plates instance
-//$templates = new League\Plates\Engine('../App/views');
+$templates = new League\Plates\Engine('../App/views');
 // Render a template
-//echo $templates->render('homepage',['name'=>'Kirill']);
-
+echo $templates->render('homepage',['name'=>'Kirill']);
+//
 //echo flash()->display();
 //flash()->error(['Invalid email!', 'Invalid username!']);
 
 
-//require '../vendor/autoload.php';
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
-    $r->addRoute('GET', '/users', ['App\controllers\HomeController','index']);
+    $r->addRoute('GET', '/exercise/deepOOP/users', ['App\controllers\HomeController','index']);
+//    $r->addRoute('GET', '/exercise/deepOOP/about', ['App\controllers\HomeController','about']);
+//    $r->addRoute('GET', '/exercise/deepOOP/layout', ['App\controllers\HomeController','layout']);
     // {id} must be a number (\d+)
 //    $r->addRoute('GET', '/user/{id:\d+}', 'get_user_handler');
 //    // The /{title} suffix is optional
@@ -77,9 +78,7 @@ switch ($routeInfo[0]) {
     case FastRoute\Dispatcher::FOUND:
         $handler = $routeInfo[1];
         $vars = $routeInfo[2];
-// ... call $handler with $vars
         $controller = new $handler[0];
-//        $controller->index(123);
         call_user_func([$controller,$handler[1]],$vars);
         break;
 }

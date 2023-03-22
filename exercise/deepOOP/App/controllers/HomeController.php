@@ -9,8 +9,9 @@ use App\QueryBuilder;
 
 class HomeController {
     public function index($vars){
-//        echo 123;
-        d($vars);
+        echo 123;exit();
+        $db = new QueryBuilder();
+//        d($vars);
 //        header('Location: public/index.php');
     }
 }
