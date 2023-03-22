@@ -13,7 +13,7 @@ session_start();
 <?php echo flash()->display();
 flash()->warning('Hot');
 ?>
-<!--<p>--><?php //=$this->e($name)?><!--</p>-->
+<p><?php echo$this->e($name)?></p>
 <?=$this->section('content')?>
 </body>
 </html>

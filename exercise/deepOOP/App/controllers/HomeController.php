@@ -3,16 +3,20 @@
 
 namespace App\controllers;
 use App\QueryBuilder;
+use League\Plates\Engine;
 
 //$a = 'dslkhsda';
 //d($a);
 
 class HomeController {
+    private $templates;
     public function index($vars){
-        echo 123;exit();
-        $db = new QueryBuilder();
-//        d($vars);
-//        header('Location: public/index.php');
+        $templates = new Engine('../App/views');
+        echo $templates->render('homepage',['name'=>'Kirill']);
+    }
+    public function about($vars){
+        $templates = new Engine('../App/views');
+        echo $templates->render('about',['name'=>'Kirill About']);
     }
 }
 //$db = new QueryBuilder();

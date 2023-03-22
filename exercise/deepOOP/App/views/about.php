@@ -1,7 +1,7 @@
 <?php
 
-$this->layout('layout', ['title' => 'User Profile']);
-flash()->message('Hot!');
+//$this->layout('layout', ['title' => 'User Profile']);
+//flash()->message('Hot!');
 ?>
 
 

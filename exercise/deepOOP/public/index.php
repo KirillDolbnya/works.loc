@@ -15,7 +15,6 @@ if( !session_id() ) {
 
 require_once "../vendor/autoload.php";
 
-//use function Tamtamchik\SimpleFlash\flash;
 
 //use App\QueryBuilder;
 //$db = new QueryBuilder();
@@ -26,31 +25,26 @@ require_once "../vendor/autoload.php";
 //echo '<pre>';
 //var_dump($_SERVER);
 //echo '</pre>';
-//
-//
+
 //if ($_SERVER['REQUEST_URI'] == '/exercise/deepOOP/public/home'){
 //    require '../App/controllers/HomeController.php';
 //}
 //exit;
-//
-//
+
 // Create new Plates instance
-$templates = new League\Plates\Engine('../App/views');
+//$templates = new League\Plates\Engine('../App/views');
 // Render a template
-echo $templates->render('homepage',['name'=>'Kirill']);
-//
+//echo $templates->render('about',['name'=>'Kirill']);
+
 //echo flash()->display();
 //flash()->error(['Invalid email!', 'Invalid username!']);
 
 
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
-    $r->addRoute('GET', '/exercise/deepOOP/users', ['App\controllers\HomeController','index']);
-//    $r->addRoute('GET', '/exercise/deepOOP/about', ['App\controllers\HomeController','about']);
-//    $r->addRoute('GET', '/exercise/deepOOP/layout', ['App\controllers\HomeController','layout']);
-    // {id} must be a number (\d+)
+    $r->addRoute('GET', '/exercise/deepOOP/home', ['App\controllers\HomeController','index']);
+    $r->addRoute('GET', '/exercise/deepOOP/about', ['App\controllers\HomeController','about']);
 //    $r->addRoute('GET', '/user/{id:\d+}', 'get_user_handler');
-//    // The /{title} suffix is optional
 //    $r->addRoute('GET', '/articles/{id:\d+}[/{title}]', 'get_article_handler');
 });
 
