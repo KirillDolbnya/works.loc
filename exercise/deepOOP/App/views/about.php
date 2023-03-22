@@ -1,10 +1,10 @@
 <?php
 
-$this->layout('layout', ['title' => 'User Profile']);
-flash()->message('Hot!');
+//$this->layout('layout', ['title' => 'User Profile']);
+//flash()->message('Hot!');
 ?>
 
 
-<p><?= $this->e($name) ?> </p>
+<!--<p>--><?php //= $this->e($name) ?><!-- </p>-->
 
 

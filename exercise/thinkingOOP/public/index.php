@@ -34,7 +34,7 @@ echo '<hr>';
 
 
 //$routes = [
-//    '/exercise/thinkingOOP/home'=>'function/homepage.php',
+//    '/exercise/thinkingOOP/home'=>'function/HomeController.php',
 //    '/exercise/thinkingOOP/about'=>'function/about.php',
 //];
 //

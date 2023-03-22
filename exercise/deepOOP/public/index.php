@@ -12,13 +12,14 @@
 if( !session_id() ) {
     session_start();
 }
+
 require_once "../vendor/autoload.php";
+
+use function Tamtamchik\SimpleFlash\flash;
+
 //use App\QueryBuilder;
 //$db = new QueryBuilder();
-//
-//
 //$result = $db->getAll('posts');
-//
 ////var_dump($result);
 //$db->delete(9,'posts');
 //echo 'index';
@@ -28,26 +29,60 @@ require_once "../vendor/autoload.php";
 //
 //
 //if ($_SERVER['REQUEST_URI'] == '/exercise/deepOOP/public/home'){
-//    require '../App/controllers/homepage.php';
+//    require '../App/controllers/HomeController.php';
 //}
 //exit;
 //
 //
 // Create new Plates instance
-$templates = new League\Plates\Engine('../App/views');
-
+//$templates = new League\Plates\Engine('../App/views');
 // Render a template
-echo $templates->render('homepage',['name'=>'Kirill']);
-//
-//$test = [
-//    'a' => 123,
-//    'b' => 456
-//];
+//echo $templates->render('homepage',['name'=>'Kirill']);
 
-//d($test);
+//echo flash()->display();
+//flash()->error(['Invalid email!', 'Invalid username!']);
 
-flash()->message('Hot!');
-flash()->error(['Invalid email!', 'Invalid username!']);
+
+//require '../vendor/autoload.php';
+
+$dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
+    $r->addRoute('GET', '/users', ['App\controllers\HomeController','index']);
+    // {id} must be a number (\d+)
+//    $r->addRoute('GET', '/user/{id:\d+}', 'get_user_handler');
+//    // The /{title} suffix is optional
+//    $r->addRoute('GET', '/articles/{id:\d+}[/{title}]', 'get_article_handler');
+});
+
+// Fetch method and URI from somewhere
+$httpMethod = $_SERVER['REQUEST_METHOD'];
+$uri = $_SERVER['REQUEST_URI'];
+
+// Strip query string (?foo=bar) and decode URI
+if (false !== $pos = strpos($uri, '?')) {
+    $uri = substr($uri, 0, $pos);
+}
+$uri = rawurldecode($uri);
+
+$routeInfo = $dispatcher->dispatch($httpMethod, $uri);
+switch ($routeInfo[0]) {
+    case FastRoute\Dispatcher::NOT_FOUND:
+        // ... 404 Not Found
+        echo 404;
+        break;
+    case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
+        $allowedMethods = $routeInfo[1];
+        // ... 405 Method Not Allowed
+        echo 405;
+        break;
+    case FastRoute\Dispatcher::FOUND:
+        $handler = $routeInfo[1];
+        $vars = $routeInfo[2];
+// ... call $handler with $vars
+        $controller = new $handler[0];
+//        $controller->index(123);
+        call_user_func([$controller,$handler[1]],$vars);
+        break;
+}
 ?>
 </body>
 </html>
