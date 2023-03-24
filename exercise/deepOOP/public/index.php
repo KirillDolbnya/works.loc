@@ -9,12 +9,28 @@
 <body>
 <?php
 // Start a Session
-if( !session_id() ) {
-    session_start();
-}
+//if( !session_id() ) {
+//    session_start();
+//}
 
 require_once "../vendor/autoload.php";
+use Illuminate\Support\Arr;
 
+
+$array = [
+        ['marlin' => ['course' => 'HTML']],
+        ['marlin' => ['course' => 'PHP']]
+];
+
+//var_dump($array);
+$result = Arr::pluck($array,'marlin.course');
+var_dump($result);
+
+
+echo '<hr>';
+echo '<hr>';
+echo '<hr>';
+echo '<hr>';
 
 //use App\QueryBuilder;
 //$db = new QueryBuilder();
