@@ -10,10 +10,18 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
-<?php echo flash()->display();
-flash()->warning('Hot');
+<?php //echo flash()->display();
+//flash()->warning('Hot');
 ?>
-<p><?php echo$this->e($name)?></p>
+<ul>
+    <li>
+        <a href="home">home</a>
+    </li>
+    <li>
+        <a href="about">about</a>
+    </li>
+</ul>
+<!--<p>--><?php //echo$this->e($name)?><!--</p>-->
 <?=$this->section('content')?>
 </body>
 </html>

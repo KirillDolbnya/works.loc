@@ -1,6 +1,6 @@
 <?php
 
-//$this->layout('layout', ['title' => 'User Profile']);
+$this->layout('layout', ['title' => 'User Profile']);
 //flash()->message('Hot!');
 ?>
 

@@ -10,13 +10,19 @@ use League\Plates\Engine;
 
 class HomeController {
     private $templates;
+    public function __construct()
+    {
+        $this->templates = new Engine('../App/views');
+    }
+
     public function index($vars){
-        $templates = new Engine('../App/views');
-        echo $templates->render('homepage',['name'=>'Kirill']);
+        $db = new QueryBuilder();
+        $posts = $db->getAll('posts');
+        echo $this->templates->render('homepage',['postsInView'=>$posts]);
     }
     public function about($vars){
-        $templates = new Engine('../App/views');
-        echo $templates->render('about',['name'=>'Kirill About']);
+        $this->templates = new Engine('../App/views');
+        echo $this->templates->render('about',['name'=>'Kirill About']);
     }
 }
 //$db = new QueryBuilder();
