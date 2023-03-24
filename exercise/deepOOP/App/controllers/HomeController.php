@@ -3,6 +3,7 @@
 
 namespace App\controllers;
 use App\QueryBuilder;
+use http\Exception;
 use League\Plates\Engine;
 
 //$a = 'dslkhsda';
@@ -21,8 +22,24 @@ class HomeController {
         echo $this->templates->render('homepage',['postsInView'=>$posts]);
     }
     public function about($vars){
-        $this->templates = new Engine('../App/views');
+//        d($vars);die;
+        try {
+            $this->withdraw($vars['amount']);
+        }catch (\Exception $exception){
+//            d($exception->getMessage());
+            flash()->error($exception->getMessage());
+//            echo 123;
+        }
         echo $this->templates->render('about',['name'=>'Kirill About']);
+    }
+
+    public function withdraw($amount = 1){
+        $total = 10;
+
+        if ($amount > $total){
+//            throw new \Exception('error');
+            throw new \Exception('Недостаточно средств');
+        }
     }
 }
 //$db = new QueryBuilder();

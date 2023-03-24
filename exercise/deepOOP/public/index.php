@@ -9,9 +9,9 @@
 <body>
 <?php
 // Start a Session
-//if( !session_id() ) {
-//    session_start();
-//}
+if( !session_id() ) {
+    session_start();
+}
 
 require_once "../vendor/autoload.php";
 use Illuminate\Support\Arr;
@@ -59,7 +59,7 @@ echo '<hr>';
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/exercise/deepOOP/home', ['App\controllers\HomeController','index']);
-    $r->addRoute('GET', '/exercise/deepOOP/about', ['App\controllers\HomeController','about']);
+    $r->addRoute('GET', '/exercise/deepOOP/about/{amount:\d+}', ['App\controllers\HomeController','about']);
 //    $r->addRoute('GET', '/user/{id:\d+}', 'get_user_handler');
 //    $r->addRoute('GET', '/articles/{id:\d+}[/{title}]', 'get_article_handler');
 });
