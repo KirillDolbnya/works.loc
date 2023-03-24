@@ -26,9 +26,7 @@ class HomeController {
         try {
             $this->withdraw($vars['amount']);
         }catch (\Exception $exception){
-//            d($exception->getMessage());
             flash()->error($exception->getMessage());
-//            echo 123;
         }
         echo $this->templates->render('about',['name'=>'Kirill About']);
     }
