@@ -28,6 +28,7 @@ class HomeController {
         }catch (\Exception $exception){
             flash()->error($exception->getMessage());
         }
+//        flash()->success($exception->getMessage());
         echo $this->templates->render('about',['name'=>'Kirill About']);
     }
 
@@ -37,6 +38,8 @@ class HomeController {
         if ($amount > $total){
 //            throw new \Exception('error');
             throw new \Exception('Недостаточно средств');
+        }else{
+            flash()->success('good');
         }
     }
 }
