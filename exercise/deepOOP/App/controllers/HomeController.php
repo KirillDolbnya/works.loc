@@ -2,6 +2,7 @@
 
 
 namespace App\controllers;
+use App\exceptions\NotEnoughMoneyException;
 use App\QueryBuilder;
 use http\Exception;
 use League\Plates\Engine;
@@ -22,13 +23,11 @@ class HomeController {
         echo $this->templates->render('homepage',['postsInView'=>$posts]);
     }
     public function about($vars){
-//        d($vars);die;
         try {
             $this->withdraw($vars['amount']);
-        }catch (\Exception $exception){
+        }catch (NotEnoughMoneyException $exception){
             flash()->error($exception->getMessage());
         }
-//        flash()->success($exception->getMessage());
         echo $this->templates->render('about',['name'=>'Kirill About']);
     }
 
@@ -37,9 +36,7 @@ class HomeController {
 
         if ($amount > $total){
 //            throw new \Exception('error');
-            throw new \Exception('Недостаточно средств');
-        }else{
-            flash()->success('good');
+            throw new NotEnoughMoneyException('Недостаточно средств');
         }
     }
 }
