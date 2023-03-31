@@ -59,7 +59,11 @@ echo '<hr>';
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/exercise/deepOOP/home', ['App\controllers\HomeController','index']);
-    $r->addRoute('GET', '/exercise/deepOOP/about/{amount:\d+}', ['App\controllers\HomeController','about']);
+//    $r->addRoute('GET', '/exercise/deepOOP/about/{amount:\d+}', ['App\controllers\HomeController','about']);
+    $r->addRoute('GET', '/exercise/deepOOP/about', ['App\controllers\HomeController','about']);
+    $r->addRoute('GET', '/exercise/deepOOP/verification', ['App\controllers\HomeController','email_verification']);
+    $r->addRoute('GET', '/exercise/deepOOP/login', ['App\controllers\HomeController','login']);
+
 //    $r->addRoute('GET', '/user/{id:\d+}', 'get_user_handler');
 //    $r->addRoute('GET', '/articles/{id:\d+}[/{title}]', 'get_article_handler');
 });
