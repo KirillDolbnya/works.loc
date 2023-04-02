@@ -94,6 +94,8 @@ switch ($routeInfo[0]) {
         $handler = $routeInfo[1];
         $vars = $routeInfo[2];
         $controller = new $handler[0];
+        var_dump($controller);
+
         call_user_func([$controller,$handler[1]],$vars);
         break;
 }
