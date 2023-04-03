@@ -25,6 +25,8 @@ class HomeController {
     public function index($vars){
 //        var_dump($this->auth->getUsername());die();
 //        $this->auth->logOut();echo 'eee';die();
+        $this->auth->admin()->addRoleForUserById(4, Delight\Auth\Role::ADMIN);
+        var_dump($this->auth->getRoles());die();
         echo $this->auth->getUsername();
         $db = new QueryBuilder();
         $posts = $db->getAll('posts');
