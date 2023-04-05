@@ -7,7 +7,9 @@
     "tamtamchik/simple-flash": "^2.0",
     "illuminate/support": "^7.30",
     "delight-im/auth": "^8.3",
-    "phpmailer/phpmailer": "^6.8"
+    "phpmailer/phpmailer": "^6.8",
+    "fakerphp/faker": "^1.20",
+    "jasongrimes/paginator": "^1.0"
 
   },
   "autoload": {
