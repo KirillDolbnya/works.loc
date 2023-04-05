@@ -17,22 +17,40 @@ $faker = Faker\Factory::create();
 $pdo = new PDO("mysql:host=localhost;dbname=app3;", "root", "");
 $queryFactory = new QueryFactory('mysql');
 
-echo $title = $faker->jobTitle();
-echo $content = $faker->text();
+//echo $title = $faker->jobTitle();
+//echo $content = $faker->text();
 
 
-$insert = $queryFactory->newInsert();
-$insert->into('posts');
-for ($i=0;$i<30;$i++){
-    $insert->cols([
-        'title' => $title,
-        'content' => $content,
-    ]);
-    $insert->addRow();
+//$insert = $queryFactory->newInsert();
+//$insert->into('posts');
+//for ($i=0;$i<30;$i++){
+//    $insert->cols([
+//        'title' => $title,
+//        'content' => $content,
+//    ]);
+//    $insert->addRow();
+//}
+//
+//$sth = $pdo->prepare($insert->getStatement());
+//$sth->execute($insert->getBindValues());
+
+
+$select = $queryFactory->newSelect();
+$select
+    ->cols(['*'])
+    ->from('posts')
+    ->setPaging(3)
+    ->page($_GET['page'] ?? 1);
+
+$sth = $pdo->prepare($select->getStatement());
+$sth->execute($select->getBindValues());
+$items = $sth->fetchAll(PDO::FETCH_ASSOC);
+var_dump($items);
+
+foreach ($items as $item => $value){
+    echo '<p>'.$value['title'].' это title</p>';
+    echo '<p>'.$value['content'].' это content</p>';
 }
-
-$sth = $pdo->prepare($insert->getStatement());
-$sth->execute($insert->getBindValues());
 
 ?>
 </body>
