@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="parent_block">
+            <div class="block">
+                <div class="circle"></div>
+            </div>
+            <div class="block block_not_view">
+                <div class="circle"></div>
+            </div>
+            <div class="block block_not_view">
+                <div class="circle"></div>
+            </div>
+        </div>
+        <button class="btn">показать</button>
+    </div>
+
+    <style>
+        .wrap{
+            width: 1980px;
+            border: 1px solid purple;
+            margin: 0 auto;
+        }
+        .parent_block{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .block{
+            position: relative;
+            width: 250px;
+            height: 250px;
+            background: green;
+        }
+        .circle{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: red;
+            top: -6px;
+            left: -6px;
+        }
+        .parent_block .block:not(:first-child){
+            display: none;
+            /*background: red;*/
+        }
+
+        @media screen and (max-width: 1650px){
+            .wrap{
+                width: 980px;
+                border: 1px solid orange;
+            }
+            .parent_block .block:not(:first-child){
+                display: none;
+                /*background: red;*/
+            }
+            .block {
+                margin: 0 auto;
+            }
+        }
+
+    </style>
+
+    <script src="../gbSite/wtf/jquery-3.6.1.min.js"></script>
+    <script>
+        $('.btn').click(function(){
+            $('.block_not_view').slideToggle(1000)
+        })
+    </script>
+</body>
+</html>
