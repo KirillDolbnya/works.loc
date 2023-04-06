@@ -8,17 +8,17 @@
 </head>
 <body>
 <?php
-//require_once "../vendor/autoload.php";
+require_once "../vendor/autoload.php";
 
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+use DI\ContainerBuilder;
+
 
 //Load Composer's autoloader
-require_once "../vendor/autoload.php";
-
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
 
@@ -57,13 +57,13 @@ try {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
 
-die();
+//die();
 // Start a Session
 if( !session_id() ) {
     session_start();
 }
 
-die();
+
 use Illuminate\Support\Arr;
 
 
@@ -106,6 +106,9 @@ echo '<hr>';
 //flash()->error(['Invalid email!', 'Invalid username!']);
 
 
+$containerBuilder = new ContainerBuilder();
+//$container = $containerBuilder->build();
+
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/exercise/deepOOP/home', ['App\controllers\HomeController','index']);
@@ -143,9 +146,8 @@ switch ($routeInfo[0]) {
     case FastRoute\Dispatcher::FOUND:
         $handler = $routeInfo[1];
         $vars = $routeInfo[2];
+        d($containerBuilder);die();
         $controller = new $handler[0];
-//        var_dump($controller);
-
         call_user_func([$controller,$handler[1]],$vars);
         break;
 }
