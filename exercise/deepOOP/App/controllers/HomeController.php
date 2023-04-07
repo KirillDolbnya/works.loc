@@ -6,7 +6,7 @@ use App\exceptions\NotEnoughMoneyException;
 use App\QueryBuilder;
 use http\Exception;
 use League\Plates\Engine;
-use Delight;
+use Delight\Auth\Auth;
 use PDO;
 
 //$a = 'dslkhsda';
@@ -15,18 +15,25 @@ use PDO;
 class HomeController {
     private $templates;
     private $auth;
-    public function __construct()
+    private $qb;
+
+    private $db;
+
+    public function __construct(QueryBuilder $qb, Engine $engine, PDO $pdo, Auth $auth)
     {
-        $this->templates = new Engine('../App/views');
-        $db = new PDO('mysql:dbname=app3;host=localhost;charset=utf8mb4', 'root', '');
-        $this->auth = new Delight\Auth\Auth($db);
+        $this->qb=$qb;
+        $this->templates = $engine;
+        $this->db = $pdo;
+        $this->auth = $auth;
     }
 
-    public function index($vars){
-//        var_dump($this->auth->getUsername());die();
-//        $this->auth->logOut();echo 'eee';die();
+    public function index(){
+        d($this->qb);
+        d($this->auth);
+        d($this->templates);
+        d($this->db);
+        die();
         $this->auth->admin()->addRoleForUserById(4, Delight\Auth\Role::ADMIN);
-        var_dump($this->auth->getRoles());die();
         echo $this->auth->getUsername();
         $db = new QueryBuilder();
         $posts = $db->getAll('posts');

@@ -12,10 +12,12 @@ require_once "../vendor/autoload.php";
 
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
+use League\Plates\Engine;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 use DI\ContainerBuilder;
+use Delight\Auth\Auth;
 
 
 //Load Composer's autoloader
@@ -59,9 +61,9 @@ try {
 
 //die();
 // Start a Session
-if( !session_id() ) {
-    session_start();
-}
+//if( !session_id() ) {
+//    session_start();
+//}
 
 
 use Illuminate\Support\Arr;
@@ -106,8 +108,22 @@ echo '<hr>';
 //flash()->error(['Invalid email!', 'Invalid username!']);
 
 
-$containerBuilder = new ContainerBuilder();
-//$container = $containerBuilder->build();
+$containerBuilder = new \DI\ContainerBuilder();
+$containerBuilder->addDefinitions([
+    Engine::class => function() {
+        return new Engine('../App/views');
+    },
+    PDO::class => function(){
+        return new PDO('mysql:dbname=app3;host=localhost;charset=utf8mb4', 'root', '');
+    },
+    Auth::class => function($container){
+        return new Auth($container->get('PDO'));
+    }
+
+]);
+
+$container = $containerBuilder->build();
+//d($container);die();
 
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
@@ -146,9 +162,12 @@ switch ($routeInfo[0]) {
     case FastRoute\Dispatcher::FOUND:
         $handler = $routeInfo[1];
         $vars = $routeInfo[2];
-        d($containerBuilder);die();
-        $controller = new $handler[0];
-        call_user_func([$controller,$handler[1]],$vars);
+//        var_dump($vars);die();
+        $container->call($handler,$vars);
+//        d($cont);die();
+//        d($containerBuilder);die();
+//        $controller = new $handler[0];
+//        call_user_func([$controller,$handler[1]],$vars);
         break;
 }
 ?>
