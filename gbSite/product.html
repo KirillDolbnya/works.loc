@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/product-style.css">
-    <link rel="stylesheet" type="text/css" href="wtf/slick/slick.css" >
-    <link rel="stylesheet" type="text/css" href="wtf/slick/slick-theme.css" >
+    <link rel="stylesheet" type="text/css" href="js/slick/slick.css" >
+    <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css" >
     <title>Document</title>
     <script src="https://kit.fontawesome.com/69767e2124.js" crossorigin="anonymous"></script>
 </head>
@@ -54,17 +54,19 @@
         </section>
 
         <section class="slider">
-            <div class="slide_img">
-                <img src="img/slider.png" alt="">
-            </div>
-            <div class="slide_img">
-                <img src="img/slider.png" alt="">
-            </div>
-            <div class="slide_img">
-                <img src="img/slider.png" alt="">
-            </div>
-            <div class="slide_img">
-                <img src="img/slider.png" alt="">
+            <div class="slider_wrap">
+                <div class="slide_img">
+                    <img src="img/slider.png" alt="">
+                </div>
+                <div class="slide_img">
+                    <img src="img/slider.png" alt="">
+                </div>
+                <div class="slide_img">
+                    <img src="img/slider.png" alt="">
+                </div>
+                <div class="slide_img">
+                    <img src="img/slider.png" alt="">
+                </div>
             </div>
         </section>
 
@@ -191,12 +193,15 @@
 
 
 
-    <script type="text/javascript" src="wtf/jquery-3.6.1.min.js"></script>
-    <script type="text/javascript" src="wtf/slick/slick.min.js"></script>
+    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="js/slick/slick.min.js"></script>
     <script>
         $(document).ready(function() {
-        $('.slider').slick({
+        $('.slider_wrap').slick({
             dots: false,
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1
         });
     });
     </script>

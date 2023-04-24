@@ -1,4 +1,4 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 
 @import 'module/var';
 
@@ -29,8 +29,21 @@
     position: relative;
 
     .slide_img{
-        padding-left: 400px;
+        display: flex !important;
+        justify-content: center !important;
     }
+}
+.slick-prev {
+    left: -2px !important;
+}
+.slick-next {
+    right: 3px !important;
+}
+//.slick-prev, .slick-next{
+//    color: red !important;
+//}
+.slick-prev:before, .slick-next:before{
+    color: red !important;
 }
 
 .collection_women_flex{
@@ -51,7 +64,7 @@
             font-size: 14px;
             position: relative;
         }
-        
+
         .collection_title::after{
             content: "";
             width: 63px;
@@ -61,31 +74,31 @@
             top: 27px;
             left: 540px;
         }
-        
+
         .collection_text-1{
             margin-top: 27px;
             color: #4D4D4D;
         }
-        
+
         .collection_text-2{
             width: 555px;
             margin: 0 auto;
             font-size: $main-size;
             margin-top: 48px;
         }
-        
+
         .collection_price{
             margin-top: 32px;
             color: #EF5B70;
         }
-        
+
     }
 
     .sort{
         display: flex;
         justify-content: center;
         gap: 42px;
-        margin-top: 130px;    
+        margin-top: 130px;
     }
 
     .button{

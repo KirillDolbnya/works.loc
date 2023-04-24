@@ -1,4 +1,4 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 
 @import 'module/var';
 
@@ -25,16 +25,20 @@
 
 
     .cards{
-        margin-top: 39px;
+        margin-top: 51px;
 
         .catalog{
             display: flex;
-            
+            justify-content: space-between;
+            width: 720px;
+            position: relative;
            
         
-            
+
             .filter{
+                position: absolute;
                 padding-left: 20px;
+                padding-right: 20px;
 
                 summary{
                     color: #000000;
@@ -69,7 +73,6 @@
                     }
     
                     ul{
-                        padding-top: px;
                         padding-left: 18px;
                         li{
                             list-style: none;
@@ -126,10 +129,8 @@
                 width: 360px;
                 height: 531px;
                 background: #FFFFFF;
-                position: absolute;
-                border: 1px solid black;
+                //position: absolute;
 
-                // padding-right: 111px;
 
                 summary{
                     color: #EF5B70;
@@ -162,35 +163,47 @@
     
             .sort{
                 display: flex;
-                gap: 28px;
+                justify-content: space-between;
                 color: #6F6E6E;
-                margin-left: 290px;
+                position: relative;
+                width: 330px;
 
-                details{
-                    
-                    summary{
-                        list-style: none;
-                        display: flex;
-                        align-items: center;
-                        gap: 10px;
-                    
+                div{
+                    .size{
+                        position: absolute;
+                        top: 0px;
+                        left: 177px;
+                    }
+                    details{
+                        summary{
+                            list-style: none;
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+
+                        }
                     }
                 }
 
                 .size[open]{
-                    width: 79px;
-                    height: 103px;
-                    position: absolute;
 
-                    
-                    display: block;                
                     summary{
-                        display: block;
                         list-style: none;
                         display: flex;
                         align-items: center;
                         gap: 10px;
-                    
+                    }
+                    .all_size{
+                        margin-top: 5px;
+                        padding: 3px 0px;
+                        width: 79px;
+                        height: 103px;
+                        background: #FFFFFF;
+                        box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+                        div{
+                            padding-left: 10px;
+                            margin-top: 6px;
+                        }
                     }
                 }
             }
