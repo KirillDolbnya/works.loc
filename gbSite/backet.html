@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/basket-style.css">
+    <script src="https://kit.fontawesome.com/69767e2124.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
@@ -43,38 +44,81 @@
             </div>
         </section>
 
-        <section class="card_basket">
-            <div class="container carf_flex">
-                <div class="card-1 card">
-                    <div class="card_img card_img-1">
-                        <img src="img/basket_card-1.png" alt="">
+        <section class="card_basket container">
+            <div class="card_basket_wrap">
+                <div class="card_flex">
+                    <div class="card-1 card">
+                        <div class="card_img card_img-1">
+                            <img src="img/basket_card-1.png" alt="">
+                        </div>
+                        <div class="card_description card_description-1">
+                            <div class="card_name">
+                                <p class="card_title">MANGO  PEOPLE</p>
+                                <p>T-SHIRT</p>
+                            </div>
+                            <div class="card_info">
+                                <p class="card_price">Price: <span> $300</span></p>
+                                <p>Color: <span> Red</span></p>
+                                <p>Size: <span> Xl</span></p>
+                                <p>Quantity:</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card_description card_description-1">
-                        <p class="card_title">MANGO  PEOPLE  T-SHIRT</p>
-                        <p class="card_price">Price:<span>$300</span></p>
-                        <p>Color:<span>Red</span></p>
-                        <p>Size: <span>Xl</span></p>
-                        <p>Quantity:</p>
+                    <div class="card-2 card">
+                        <div class="card_img card_img-2">
+                            <img src="img/basket-card-niger.png" alt="">
+                        </div>
+                        <div class="card_description card_description-2">
+                            <div class="card_name">
+                                <p class="card_title">MANGO  PEOPLE</p>
+                                <p>T-SHIRT</p>
+                            </div>
+                            <div class="card_info">
+                                <p class="card_price">Price: <span> $300</span></p>
+                                <p>Color: <span> Red</span></p>
+                                <p>Size: <span> Xl</span></p>
+                                <p>Quantity: </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="card-2 card">
-                    <div class="card_img card_img-2">
-                        <img src="img/basket-card-niger.png" alt="">
+                <div class="btn_func">
+                    <button class="btn">
+                        CLEAR SHOPPING CART
+                    </button>
+                    <button class="btn">
+                        CONTINUE SHOPPING
+                    </button>
+                </div>
+            </div>
+            <div class="info_order">
+                <div class="address">
+                    <p>SHIPPING ADRESS</p>
+                    <form action="">
+                        <input type="text" placeholder="Bangladesh">
+                        <input type="text" placeholder="State">
+                        <input type="text" placeholder="Postcode / Zip">
+                    </form>
+                    <button>
+                        GET A QUOTE
+                    </button>
+                </div>
+                <div class="total_price">
+                    <div class="sub_total">
+                        <p>SUB TOTAL <span> $900</span></p>
                     </div>
-                    <div class="card_description card_description-2">
-                        <p class="card_title">MANGO  PEOPLE  T-SHIRT</p>
-                        <p class="card_price">Price:<span>$300</span></p>
-                        <p>Color:<span>Red</span></p>
-                        <p>Size: <span>Xl</span></p>
-                        <p>Quantity:</p>
+                    <div class="grand_total">
+                        <p>GRAND TOTAL <span> $900</span></p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="btn">
+                        <button>
+                            PROCEED TO CHECKOUT
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
-
-
-
-
 
         <section class="subscribe wrap">
             <div class="container subscribe_flex">
@@ -94,28 +138,29 @@
                 </div>
             </div>
         </section>
-    </main>
 
-    <footer class="footer">
-        <div class="footer_flex container">
-            <div class="footer_title">
-                <p>© 2021  Brand  All Rights Reserved.</p>
+
+        <footer class="footer">
+            <div class="footer_flex container">
+                <div class="footer_title">
+                    <p>© 2021  Brand  All Rights Reserved.</p>
+                </div>
+                <nav class="footer_icon">
+                    <a class="footer-facebook social-icon" href="#">
+                        <i class="fa-brands fa-facebook-f icon"></i>
+                    </a>
+                    <a class="footer-inst social-icon" href="#">
+                        <i class="fa-brands fa-instagram icon"></i>
+                    </a>
+                    <a class="footer-pinterest social-icon" href="#">
+                        <i class="fa-brands fa-pinterest-p icon"></i>
+                    </a>
+                    <a class="footer-twitter social-icon" href="#">
+                        <i class="fa-brands fa-twitter icon"></i>
+                    </a>
+                </nav>
             </div>
-            <nav class="footer_icon">
-                <a class="footer-facebook social-icon" href="#">
-                    <i class="fa-brands fa-facebook-f icon"></i>
-                </a>
-                <a class="footer-inst social-icon" href="#">
-                    <i class="fa-brands fa-instagram icon"></i>
-                </a>
-                <a class="footer-pinterest social-icon" href="#">
-                    <i class="fa-brands fa-pinterest-p icon"></i>
-                </a>
-                <a class="footer-twitter social-icon" href="#">
-                    <i class="fa-brands fa-twitter icon"></i>
-                </a>
-            </nav>
-        </div>
-    </footer>
+        </footer>
+    </main>
 </body>
 </html>
