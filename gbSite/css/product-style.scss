@@ -39,9 +39,6 @@
 .slick-next {
     right: 3px !important;
 }
-//.slick-prev, .slick-next{
-//    color: red !important;
-//}
 .slick-prev:before, .slick-next:before{
     color: red !important;
 }
@@ -51,9 +48,10 @@
     border: 1px solid #EAEAEA;
     position: absolute;
     z-index: 999;
-    top: 935px;
+    top: 700px;
     background: white;
-    left: 180px;
+    left: 0;
+    right: 0;
 
     .collection_women_title{
         margin-top: 64px;
@@ -93,12 +91,25 @@
         }
 
     }
+    .border_collection_women{
+        margin: 0 auto;
+        width: 642px;
+        margin-top: 65px;
+        height: 1px;
+        background: #EAEAEA;
+    }
 
     .sort{
         display: flex;
         justify-content: center;
         gap: 42px;
-        margin-top: 130px;
+        margin-top: 64px;
+
+        .sort_title{
+            display: flex;
+            gap: 9px;
+            align-items: center;
+        }
     }
 
     .button{
