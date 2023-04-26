@@ -127,6 +127,19 @@
             gap: 31px;
             box-shadow: 18px 13px 20px 0px rgba(0, 0, 0, 0.21);
 
+            .close_card{
+                margin-top: 25px;
+                margin-left: auto;
+                margin-right: auto;
+
+                .close{
+                    path:hover{
+                        fill: red;
+                    }
+                }
+
+            }
+
             .card_img{
                 width: 262px;
                 height: 306px;
