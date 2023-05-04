@@ -29,6 +29,60 @@
   }
 }
 
+.register_wrap{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 90px;
+  //height: 500px;
+}
+
+.form_register{
+  margin-top: 65px;
+  width: 360px;
+
+  .form{
+    display: grid;
+
+    input{
+      margin-top: 20px;
+      height: 45px;
+      border: 1px solid #A4A4A4;
+      padding-left: 10px;
+      color: #B1B1B1;
+    }
+
+    button{
+      margin-top: 60px;
+      width: 167px;
+      height: 50px;
+      background: #F16D7F;
+      color: #FFFFFF;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+  }
+}
+
+.perks{
+  margin-top: 65px;
+  font-size: 24px;
+
+  .text{
+    margin-top: 22px;
+  }
+
+  .perks_item{
+    display: flex;
+    gap: 23px;
+    margin-top: 16px;
+    align-items: center;
+  }
+}
+
+
 
 @import 'module/subscribe';
 
