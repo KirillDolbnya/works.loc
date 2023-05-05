@@ -132,11 +132,12 @@
             width: 360px;
             height: 581px;
             background:  $card-bg;
+            position: relative;
 
             .imeg_card{
                 width: 100%;
                 height: 420px;
-                background: red;
+                background: #000;
             }
             .card_title{
                 margin-top: 25px;
@@ -250,6 +251,46 @@ header{
 .close{
     path:hover{
         fill: red;
+    }
+}
+
+.add_basket{
+    position: absolute;
+    top: 180px;
+    right: 110px;
+    display: none;
+
+
+    button{
+        width: 139px;
+        height: 44px;
+        border: 1px solid #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 11px;
+        font-size: 14px;
+        color: #FFFFFF;
+        background-color: rgba(28,28,28,0);
+    }
+
+    svg{
+        path{
+            width: 26px;
+            height: 23px;
+            fill: #FFFFFF;
+        }
+    }
+}
+
+.card:hover{
+
+    img{
+        opacity: 0.6;
+        transition: 0.3s linear;
+    }
+    .add_basket{
+        display: block;
     }
 }
 
