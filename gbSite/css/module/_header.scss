@@ -23,11 +23,7 @@
         .nav_right{
             display: flex;
             align-items: center;
-    
-            .nav_item{
-                &:not(:last-child){
-                    margin-right: 33px;
-                }
+            gap: 30px;
             }
 
             .basket_header{
@@ -48,4 +44,3 @@
             }
         }
     }
-}
