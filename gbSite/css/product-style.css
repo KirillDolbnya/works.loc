@@ -24,23 +24,22 @@
           margin-right: 33px; }
     .header_flex .nav_right {
       display: flex;
-      align-items: center; }
-      .header_flex .nav_right .nav_item:not(:last-child) {
-        margin-right: 33px; }
-      .header_flex .nav_right .basket_header {
-        position: relative; }
-        .header_flex .nav_right .basket_header .amount {
-          color: #FFFFFF;
-          width: 19px;
-          height: 19px;
-          border-radius: 50%;
-          background: #F16D7F;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          position: absolute;
-          right: -9px;
-          top: -6px; }
+      align-items: center;
+      gap: 30px; }
+    .header_flex .basket_header {
+      position: relative; }
+      .header_flex .basket_header .amount {
+        color: #FFFFFF;
+        width: 19px;
+        height: 19px;
+        border-radius: 50%;
+        background: #F16D7F;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: -9px;
+        top: -6px; }
 
 .intro {
   height: 148px;
@@ -93,9 +92,10 @@
   border: 1px solid #EAEAEA;
   position: absolute;
   z-index: 999;
-  top: 935px;
+  top: 700px;
   background: white;
-  left: 180px; }
+  left: 0;
+  right: 0; }
   .collection_women_flex .collection_women_title {
     margin-top: 64px;
     text-align: center; }
@@ -122,11 +122,21 @@
     .collection_women_flex .collection_women_title .collection_price {
       margin-top: 32px;
       color: #EF5B70; }
+  .collection_women_flex .border_collection_women {
+    margin: 0 auto;
+    width: 642px;
+    margin-top: 65px;
+    height: 1px;
+    background: #EAEAEA; }
   .collection_women_flex .sort {
     display: flex;
     justify-content: center;
     gap: 42px;
-    margin-top: 130px; }
+    margin-top: 64px; }
+    .collection_women_flex .sort .sort_title {
+      display: flex;
+      gap: 9px;
+      align-items: center; }
   .collection_women_flex .button {
     margin-top: 48px;
     display: flex;

@@ -24,23 +24,22 @@
           margin-right: 33px; }
     .header_flex .nav_right {
       display: flex;
-      align-items: center; }
-      .header_flex .nav_right .nav_item:not(:last-child) {
-        margin-right: 33px; }
-      .header_flex .nav_right .basket_header {
-        position: relative; }
-        .header_flex .nav_right .basket_header .amount {
-          color: #FFFFFF;
-          width: 19px;
-          height: 19px;
-          border-radius: 50%;
-          background: #F16D7F;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          position: absolute;
-          right: -9px;
-          top: -6px; }
+      align-items: center;
+      gap: 30px; }
+    .header_flex .basket_header {
+      position: relative; }
+      .header_flex .basket_header .amount {
+        color: #FFFFFF;
+        width: 19px;
+        height: 19px;
+        border-radius: 50%;
+        background: #F16D7F;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: -9px;
+        top: -6px; }
 
 .intro {
   height: 148px;
@@ -142,11 +141,13 @@
           padding-bottom: 11px;
           margin-right: 15px;
           border-left: 5px solid #EF5B70;
-          border-bottom: 1px solid #EBEBEB; }
+          border-bottom: 1px solid #EBEBEB;
+          padding-bottom: 10px; }
     .cards .catalog .filter[open] {
       width: 360px;
       height: 531px;
-      background: #FFFFFF; }
+      background: #FFFFFF;
+      box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21); }
       .cards .catalog .filter[open] summary {
         color: #EF5B70; }
         .cards .catalog .filter[open] summary path {
