@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 .container{
@@ -191,15 +192,19 @@
 }
 
 .menu_wrap{
-    background: #FFFFFF;
-    width: 232px;
-    height: 764px;
-    display: none;
-    position: absolute;
-    top: 80px;
-    right: 0;
-    box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
-    padding-left: 30px;
+    position: relative;
+
+    .menu_category{
+        background: #FFFFFF;
+        width: 232px;
+        height: 764px;
+        display: none;
+        position: absolute;
+        top: 54px;
+        left: 110px;
+        box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+        padding-left: 30px;
+    }
 
     details{
         margin-top: 20px;
@@ -233,12 +238,9 @@
         }
     }
 }
+
 .menu:hover{
     cursor: pointer;
-}
-
-header{
-    position: relative;
 }
 
 .close_menu{
@@ -291,6 +293,28 @@ header{
     }
     .add_basket{
         display: block;
+    }
+}
+.profile_menu_container{
+    position: relative;
+    .profile_edit{
+        position: absolute;
+        width: 110px;
+        height: 120px;
+        background: #FFFFFF;
+        color: #6F6E6E;
+        text-align: center;
+        display: none;
+        top: 56px;
+        right: -96px;
+
+        p{
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        p:hover{
+            border-bottom: 1px solid black;
+        }
     }
 }
 
