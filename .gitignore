@@ -1,2 +1,8 @@
 /.idea/
 exercise/cleanOOP/.idea/.gitignore
+/gbSite/composer.json
+/gbSite/.htaccess
+/gbSite/composer.lock
+/gbSite/vendor/
+/gbSite/vendor/
+/gbSite/vendor/composer/

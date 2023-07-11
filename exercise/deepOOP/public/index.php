@@ -95,7 +95,7 @@ echo '<hr>';
 //echo '</pre>';
 
 //if ($_SERVER['REQUEST_URI'] == '/exercise/deepOOP/public/home'){
-//    require '../App/controllers/HomeController.php';
+//    require '../App/controller/HomeController.php';
 //}
 //exit;
 
@@ -128,7 +128,7 @@ $container = $containerBuilder->build();
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/exercise/deepOOP/home', ['App\controllers\HomeController','index']);
-//    $r->addRoute('GET', '/exercise/deepOOP/about/{amount:\d+}', ['App\controllers\HomeController','about']);
+//    $r->addRoute('GET', '/exercise/deepOOP/about/{amount:\d+}', ['App\controller\HomeController','about']);
     $r->addRoute('GET', '/exercise/deepOOP/about', ['App\controllers\HomeController','about']);
     $r->addRoute('GET', '/exercise/deepOOP/verification', ['App\controllers\HomeController','email_verification']);
     $r->addRoute('GET', '/exercise/deepOOP/login', ['App\controllers\HomeController','login']);
