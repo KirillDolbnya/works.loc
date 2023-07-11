@@ -1963,3 +1963,4 @@ exercise/cleanOOP/.idea/.gitignore
 /exercise/deepOOP/vendor/voku/portable-ascii/README.md
 /exercise/deepOOP/vendor/autoload.php
 /exercise/deepOOP/composer.lock
+/инструменты.txt
